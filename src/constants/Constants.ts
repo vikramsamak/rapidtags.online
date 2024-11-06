@@ -5,9 +5,9 @@ export const APP_DETAILS = {
 };
 
 export const METADATA = {
-  title: "RapidTags: Hashtag Generator and SEO Tools for YouTube, TikTok",
+  title: "Rapidtags | Grow Faster on YouTube",
   description:
-    "Boost your social media reach with RapidTags, the ultimate hashtag generator for YouTube, TikTok, and Instagram. Unlock SEO tools for better engagement.",
+    "Rapidtags provides tools to help you easily grow your YouTube channel Start growing on YouTube for free today using Rapidtags and take your channel to the next level.",
   keywords: [
     "hashtag generator",
     "keyword planner",
