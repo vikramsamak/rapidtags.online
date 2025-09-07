@@ -3,13 +3,15 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { APP_URL, METADATA } from "@/constants/Constants";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ReactQueryProvider from "@/contexts/ReactQueryProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import {
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+} from "@radix-ui/react-scroll-area";
 
 export const metadata: Metadata = {
   title: METADATA.title,
@@ -44,11 +46,12 @@ export default function RootLayout({
             <Header />
             <ReactQueryProvider>{children}</ReactQueryProvider>
             <Footer />
+            <ScrollAreaScrollbar orientation="vertical">
+              <ScrollAreaThumb />
+            </ScrollAreaScrollbar>
           </ScrollArea>
           <Toaster position="top-center" />
         </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
         <GoogleAnalytics gaId={GA_TAG} />
       </body>
     </html>
