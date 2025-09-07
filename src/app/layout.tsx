@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: APP_URL,
   },
+  metadataBase: new URL("https://www.rapidtags.online"),
   applicationName: "RapidTags",
 };
 
