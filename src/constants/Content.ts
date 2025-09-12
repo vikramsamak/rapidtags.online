@@ -1,4 +1,4 @@
-import { ContentData } from "@/types/Types";
+import { ContentData } from "@/types";
 
 export const rapidTagsContent: ContentData = [
   {
