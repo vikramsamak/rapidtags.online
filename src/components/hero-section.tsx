@@ -11,7 +11,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
-import { Hash, ArrowRight, Copy, Check } from "lucide-react";
+import { Hash, ArrowRight, Check } from "lucide-react";
+import { toast } from "sonner";
 
 export function HeroSection() {
   const [postContent, setPostContent] = useState("");
@@ -93,6 +94,7 @@ export function HeroSection() {
     setGeneratedTags(
       mockTags[platform as keyof typeof mockTags] || mockTags.instagram
     );
+    toast.success("Hashtags generated successfully!");
     setIsGenerating(false);
   };
 
@@ -100,6 +102,7 @@ export function HeroSection() {
     const tagsText = generatedTags.join(" ");
     await navigator.clipboard.writeText(tagsText);
     setIsCopied(true);
+    toast.success("Hashtags copied to clipboard!");
     setTimeout(() => setIsCopied(false), 2000);
   };
 
@@ -169,17 +172,8 @@ export function HeroSection() {
                       size="sm"
                       className="h-8 px-3 bg-background/50 border-white/10 hover:bg-background/70 transition-colors"
                     >
-                      {isCopied ? (
-                        <>
-                          <Check className="h-3 w-3 mr-1" />
-                          Copied
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="h-3 w-3 mr-1" />
-                          Copy All
-                        </>
-                      )}
+                      <Check className="h-3 w-3 mr-1" />
+                      {isCopied ? "Copied" : "Copy All"}
                     </Button>
                   </div>
                   <div className="flex flex-wrap gap-2 p-4 bg-background/30 rounded-lg border border-white/5">
