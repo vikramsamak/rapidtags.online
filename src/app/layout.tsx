@@ -4,7 +4,6 @@ import { Toaster } from "@/components/ui/sonner";
 import { APP_URL, METADATA } from "@/constants";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import ReactQueryProvider from "@/contexts/ReactQueryProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -44,7 +43,7 @@ export default function RootLayout({
         >
           <ScrollArea className="h-[100vh]">
             <Header />
-            <ReactQueryProvider>{children}</ReactQueryProvider>
+            {children}
             <Footer />
             <ScrollAreaScrollbar orientation="vertical">
               <ScrollAreaThumb />
