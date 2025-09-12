@@ -1,9 +1,4 @@
-export type ApiResponse = {
-  data: {
-    query: string;
-    tags: string[];
-  };
-};
+export { type ApiError } from "./api.types";
 
 export type Content = {
   title: string;
