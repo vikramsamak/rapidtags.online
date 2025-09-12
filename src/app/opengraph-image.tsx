@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { Inter } from "next/font/google";
-import { APP_URL } from "@/constants/Constants";
+import { APP_URL } from "@/constants";
 
 export const runtime = "edge";
 

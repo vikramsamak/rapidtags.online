@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
-import { APP_URL, METADATA } from "@/constants/Constants";
+import { APP_URL, METADATA } from "@/constants";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ReactQueryProvider from "@/contexts/ReactQueryProvider";

@@ -1,6 +1,6 @@
 import Headings from "@/components/Headings";
 import TagSearch from "@/components/TagSearch";
-import { APP_DETAILS } from "@/constants/Constants";
+import { APP_DETAILS } from "@/constants";
 
 function TagGenerator() {
   return (

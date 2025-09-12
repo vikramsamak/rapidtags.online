@@ -1,4 +1,4 @@
-import { APP_URL } from "@/constants/Constants";
+import { APP_URL } from "@/constants";
 import React from "react";
 
 function Footer() {
