@@ -13,93 +13,52 @@ import {
 import { Card } from "@/components/ui/card";
 import { Hash, ArrowRight, Check } from "lucide-react";
 import { toast } from "sonner";
+import { makeApiRequest } from "@/utils";
+import clsx from "clsx";
 
 export function HeroSection() {
-  const [postContent, setPostContent] = useState("");
+  const [title, setTitle] = useState("");
   const [platform, setPlatform] = useState("");
   const [generatedTags, setGeneratedTags] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
   const handleGenerate = async () => {
-    setIsGenerating(true);
-
-    // Simulate API call delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    // Mock generated hashtags based on platform
-    const mockTags = {
-      instagram: [
-        "#photography",
-        "#sunset",
-        "#beach",
-        "#friends",
-        "#memories",
-        "#nature",
-        "#golden",
-        "#peaceful",
-        "#weekend",
-        "#blessed",
-      ],
-      tiktok: [
-        "#viral",
-        "#sunset",
-        "#beach",
-        "#friends",
-        "#fyp",
-        "#trending",
-        "#nature",
-        "#vibes",
-        "#summer",
-        "#memories",
-      ],
-      youtube: [
-        "#sunset",
-        "#beach",
-        "#nature",
-        "#photography",
-        "#travel",
-        "#friends",
-        "#golden",
-        "#peaceful",
-        "#vlog",
-        "#memories",
-      ],
-      linkedin: [
-        "#photography",
-        "#nature",
-        "#teamwork",
-        "#inspiration",
-        "#leadership",
-        "#networking",
-        "#professional",
-        "#growth",
-        "#success",
-        "#motivation",
-      ],
-      twitter: [
-        "#sunset",
-        "#beach",
-        "#photography",
-        "#nature",
-        "#friends",
-        "#memories",
-        "#peaceful",
-        "#golden",
-        "#weekend",
-        "#blessed",
-      ],
-    };
-
-    setGeneratedTags(
-      mockTags[platform as keyof typeof mockTags] || mockTags.instagram
-    );
-    toast.success("Hashtags generated successfully!");
-    setIsGenerating(false);
+    try {
+      setIsGenerating(true);
+      const response: { data: string[] } = await makeApiRequest({
+        url: "/api/generate-hashtags",
+        method: "POST",
+        data: { title, platform },
+      });
+      toast.success("Hashtags generated successfully!");
+      setGeneratedTags(response.data);
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const handleCopy = async () => {
-    const tagsText = generatedTags.join(" ");
+    if (isCopied) {
+      return;
+    }
+
+    if (generatedTags.length === 0) {
+      toast.error("No hashtags to copy.");
+      return;
+    }
+
+    if (selectedTags.length === 0) {
+      toast.error("No hashtags selected.");
+      return;
+    }
+
+    const tagsText = selectedTags.join(" ");
     await navigator.clipboard.writeText(tagsText);
     setIsCopied(true);
     toast.success("Hashtags copied to clipboard!");
@@ -132,9 +91,10 @@ export function HeroSection() {
             <div className="space-y-6">
               <Input
                 id="post-content"
-                placeholder="Describe your content (e.g., Amazing sunset at the beach with friends...)"
-                value={postContent}
-                onChange={(e) => setPostContent(e.target.value)}
+                placeholder="Describe your content..."
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
                 className="h-12 bg-background/50 border-white/10 focus:border-white/20 transition-colors"
               />
 
@@ -154,7 +114,7 @@ export function HeroSection() {
               <Button
                 onClick={handleGenerate}
                 className="w-full h-12 bg-primary hover:bg-primary/90 transition-all duration-200 hover:shadow-lg hover:shadow-primary/25"
-                disabled={!postContent || !platform || isGenerating}
+                disabled={!title || !platform || isGenerating}
               >
                 {isGenerating ? "Generating..." : "Generate Hashtags"}
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -170,17 +130,30 @@ export function HeroSection() {
                       onClick={handleCopy}
                       variant="outline"
                       size="sm"
-                      className="h-8 px-3 bg-background/50 border-white/10 hover:bg-background/70 transition-colors"
+                      disabled={isCopied || selectedTags.length === 0}
+                      className="h-8 px-3 bg-background/50 border-white/10 hover:bg-background/70 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <Check className="h-3 w-3 mr-1" />
-                      {isCopied ? "Copied" : "Copy All"}
+                      {isCopied ? "Copied" : `Copy (${selectedTags.length})`}
                     </Button>
                   </div>
                   <div className="flex flex-wrap gap-2 p-4 bg-background/30 rounded-lg border border-white/5">
                     {generatedTags.map((tag, index) => (
                       <span
                         key={index}
-                        className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors cursor-default"
+                        onClick={() =>
+                          setSelectedTags((prev) =>
+                            prev.includes(tag)
+                              ? prev.filter((t) => t !== tag)
+                              : [...prev, tag]
+                          )
+                        }
+                        className={clsx(
+                          "inline-flex items-center rounded-full px-3 py-1 text-xs font-medium transition-colors cursor-pointer select-none user-select-none",
+                          selectedTags.includes(tag)
+                            ? "bg-primary text-primary-foreground border border-primary"
+                            : "bg-muted text-muted-foreground border border-transparent hover:bg-muted/80"
+                        )}
                       >
                         {tag}
                       </span>
