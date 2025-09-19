@@ -1,26 +1,22 @@
-export const APP_DETAILS = {
-  heading: "YOUTUBE TAG GENERATOR",
-  subHeading:
-    " Instantly generate powerful, SEO-optimized YouTube tags to boost your visibility.",
-};
-
 export const METADATA = {
-  title: "Rapidtags | Grow Faster on YouTube",
+  title: "Rapidtags | Hashtag Generator for YouTube, TikTok, Instagram & More",
   description:
-    "Rapidtags provides tools to help you easily grow your YouTube channel Start growing on YouTube for free today using Rapidtags and take your channel to the next level.",
+    "Rapidtags is a free hashtag generator that helps you find the best hashtags for your social media posts. Boost your visibility on platforms like YouTube, TikTok, Instagram, LinkedIn, and Twitter.",
   keywords: [
     "hashtag generator",
-    "keyword planner",
-    "key words",
+    "youtube hashtag generator",
+    "tiktok hashtag generator",
+    "instagram hashtag generator",
+    "linkedin hashtag generator",
+    "twitter hashtag generator",
+    "social media marketing",
     "seo tools",
     "keyword research",
-    "seo optimization",
-    "trending tiktok hashtags",
+    "trending hashtags",
     "rapidtags",
-    "youtube stats",
-    "seo optimization tools",
   ],
   creator: "Vikram Samak",
   authors: [{ name: "Vikram Samak", url: "https://vikramsamak.com" }],
 };
-export const APP_URL = "https://www.rapidtags.online/";
+
+export const APP_URL = "https://www.rapidtags.online";
