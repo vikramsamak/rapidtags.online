@@ -30,8 +30,20 @@ You can access the live application here: [https://rapitags.online](https://rapi
 
 ## 💻 Technologies Used
 
-* [Next.js](https://nextjs.org/) - React Framework
-* [React](https://reactjs.org/) - JavaScript Library
-* [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
-* [Tailwind CSS](https://tailwindcss.com/) - CSS Framework
-* [Shadcn/ui](https://ui.shadcn.com/) - UI Components
+* **[Next.js](https://nextjs.org/):** A React framework for building server-side rendered and statically generated web applications.
+* **[React](https://reactjs.org/):** A JavaScript library for building user interfaces.
+* **[TypeScript](https://www.typescriptlang.org/):** A typed superset of JavaScript that compiles to plain JavaScript.
+* **[Tailwind CSS](https://tailwindcss.com/):** A utility-first CSS framework for rapidly building custom designs.
+* **[Shadcn/ui](https://ui.shadcn.com/):** A collection of re-usable UI components.
+* **[Lucide React](https://lucide.dev/):** A library of simply designed, beautiful icons.
+* **[Sonner](https://sonner.emilkowal.ski/):** A toast notification library for React.
+* **[Axios](https://axios-http.com/):** A promise-based HTTP client for the browser and Node.js.
+
+## ⚙️ How it Works
+
+1. **User Interaction:** The user enters a title or keyword and selects a platform.
+2. **API Request:** When the "Generate Hashtags" button is clicked, a request is made to the backend.
+3. **Backend Forwarding:** The backend forwards the request to an external AI service.
+4. **AI Processing:** The external AI service processes the request and generates the hashtags.
+5. **Displaying Results:** The application receives the hashtags and displays them to the user.
+6. **Copy to Clipboard:** The user can then select the desired hashtags and copy them to their clipboard.
