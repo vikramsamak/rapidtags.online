@@ -6,11 +6,13 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: "RapidTags",
     description: "A app build for generating hashtags.",
     start_url: "/",
+    scope: "/",
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#000000",
     orientation: "any",
     id: "/",
+    categories: ["social", "utilities"],
     icons: [
       {
         src: "/icon/android/android-launchericon-192-192.png",
@@ -55,6 +57,13 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
         sizes: "345x767",
         form_factor: "narrow",
+      },
+    ],
+    shortcuts: [
+      {
+        name: "Generate Hashtags",
+        url: "/",
+        description: "Go to the main page to generate hashtags",
       },
     ],
   };
