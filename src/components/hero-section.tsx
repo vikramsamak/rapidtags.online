@@ -99,7 +99,11 @@ export function HeroSection() {
               />
 
               <Select value={platform} onValueChange={setPlatform}>
-                <SelectTrigger className="w-full h-12 bg-background/50 border-white/10 focus:border-white/20 transition-colors">
+                <SelectTrigger
+                  className="w-full h-12 bg-background/50 border-white/10 focus:border-white/20 transition-colors"
+                  title="Select platform"
+                  name="Select platform"
+                >
                   <SelectValue placeholder="Select platform" />
                 </SelectTrigger>
                 <SelectContent>

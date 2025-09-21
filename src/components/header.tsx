@@ -45,6 +45,12 @@ export function Header() {
             variant="ghost"
             size="sm"
             className="md:hidden p-2"
+            name="Toggle Menu"
+            aria-label="Toggle Menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            aria-haspopup="true"
+            title="Toggle Menu"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
