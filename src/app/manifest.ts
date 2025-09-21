@@ -1,21 +1,10 @@
 import type { MetadataRoute } from "next";
 
-interface CustomScreenshot {
-  src: string;
-  type: string;
-  sizes: string;
-  form_factor: "narrow" | "wide";
-}
-
-interface CustomManifest extends MetadataRoute.Manifest {
-  screenshots: CustomScreenshot[];
-}
-
-export default function manifest(): CustomManifest {
+export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Rapidtags-Youtube Tag Generator",
+    name: "Rapidtags",
     short_name: "RapidTags",
-    description: "A app build for generating youtube tags.",
+    description: "A app build for generating hashtags.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
@@ -27,11 +16,13 @@ export default function manifest(): CustomManifest {
         src: "/icon/icon-192x192.png",
         sizes: "192x192",
         type: "image/png",
+        purpose: "any",
       },
       {
         src: "/icon/icon-512x512.png",
         sizes: "512x512",
         type: "image/png",
+        purpose: "any",
       },
     ],
     screenshots: [
