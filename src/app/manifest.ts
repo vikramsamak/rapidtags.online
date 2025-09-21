@@ -1,36 +1,47 @@
 import type { MetadataRoute } from "next";
 
-interface CustomScreenshot {
-  src: string;
-  type: string;
-  sizes: string;
-  form_factor: "narrow" | "wide";
-}
-
-interface CustomManifest extends MetadataRoute.Manifest {
-  screenshots: CustomScreenshot[];
-}
-
-export default function manifest(): CustomManifest {
+export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Rapidtags-Youtube Tag Generator",
+    name: "Rapidtags",
     short_name: "RapidTags",
-    description: "A app build for generating youtube tags.",
+    description: "A app build for generating hashtags.",
     start_url: "/",
+    scope: "/",
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#000000",
     orientation: "any",
     id: "/",
+    categories: ["social", "utilities"],
     icons: [
       {
-        src: "/icon/icon-192x192.png",
+        src: "/icon/android/android-launchericon-192-192.png",
         sizes: "192x192",
         type: "image/png",
       },
       {
-        src: "/icon/icon-512x512.png",
+        src: "/icon/android/android-launchericon-512-512.png",
         sizes: "512x512",
+        type: "image/png",
+      },
+      {
+        src: "/icon/ios/192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "/icon/ios/512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+      {
+        src: "/icon/windows11/Square150x150Logo.scale-100.png",
+        sizes: "150x150",
+        type: "image/png",
+      },
+      {
+        src: "/icon/windows11/LargeTile.scale-200.png",
+        sizes: "620x620",
         type: "image/png",
       },
     ],
@@ -46,6 +57,13 @@ export default function manifest(): CustomManifest {
         type: "image/png",
         sizes: "345x767",
         form_factor: "narrow",
+      },
+    ],
+    shortcuts: [
+      {
+        name: "Generate Hashtags",
+        url: "/",
+        description: "Go to the main page to generate hashtags",
       },
     ],
   };

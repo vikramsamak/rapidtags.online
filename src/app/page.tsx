@@ -1,15 +1,19 @@
-import Content from "@/components/Content";
-import TagGenerator from "@/components/Taggenerator";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { HeroSection } from "@/components/hero-section";
+import { HowItWorks } from "@/components/how-it-works";
+import { WhyChooseUs } from "@/components/why-choose-us";
 
 export default function Home() {
   return (
-    
-    <main className="flex flex-col gap-2">
-      <section className="flex h-screen justify-center items-center px-4">
-        <TagGenerator />
-      </section>
-      <Content />
-    </main>
- 
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <HeroSection />
+        <HowItWorks />
+        <WhyChooseUs />
+      </main>
+      <Footer />
+    </div>
   );
 }

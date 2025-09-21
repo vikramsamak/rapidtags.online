@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
-import { APP_URL, METADATA } from "@/constants/Constants";
+import { APP_URL, METADATA } from "@/constants";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import ReactQueryProvider from "@/contexts/ReactQueryProvider";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Suspense } from "react";
 import "./globals.css";
-import {
-  ScrollAreaScrollbar,
-  ScrollAreaThumb,
-} from "@radix-ui/react-scroll-area";
 
 export const metadata: Metadata = {
   title: METADATA.title,
@@ -34,25 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="flex flex-col min-h-screen">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ScrollArea className="h-[100vh]">
-            <Header />
-            <ReactQueryProvider>{children}</ReactQueryProvider>
-            <Footer />
-            <ScrollAreaScrollbar orientation="vertical">
-              <ScrollAreaThumb />
-            </ScrollAreaScrollbar>
-          </ScrollArea>
-          <Toaster position="top-center" />
-        </ThemeProvider>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable} antialiased dark`}
+    >
+      <body className="font-sans bg-background text-foreground">
+        <Suspense fallback={null}>{children}</Suspense>
         <GoogleAnalytics gaId={GA_TAG} />
+        <Toaster position="bottom-right" />
       </body>
     </html>
   );
