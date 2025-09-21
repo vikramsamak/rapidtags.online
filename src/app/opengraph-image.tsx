@@ -1,7 +1,5 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-
 export const alt = "RapidTags - AI-Powered Hashtag Generator";
 export const size = {
   width: 1200,
@@ -56,6 +54,10 @@ export default async function Image() {
                 width: "60px",
                 height: "60px",
                 color: "#000000",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                fontSize: "50px",
               }}
             >
               #
