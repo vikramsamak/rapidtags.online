@@ -1,5 +1,3 @@
-"use client";
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Edit3, Zap, Share2, TrendingUp } from "lucide-react";
 

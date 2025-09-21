@@ -1,5 +1,3 @@
-"use client";
-
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Zap,
@@ -7,7 +5,7 @@ import {
   TrendingUp as Trending,
   Shield,
   Clock,
-  Users,
+  Sparkles,
 } from "lucide-react";
 
 const features = [
@@ -42,10 +40,10 @@ const features = [
       "Generate hashtags anytime, anywhere. No limits, no restrictions.",
   },
   {
-    icon: Users,
-    title: "Trusted by Creators",
+    icon: Sparkles,
+    title: "Cutting-Edge & Evolving",
     description:
-      "Join thousands of content creators who boost their reach with our tool.",
+      "Our AI tool is brand new and continuously improving with fresh updates and features.",
   },
 ];
 
