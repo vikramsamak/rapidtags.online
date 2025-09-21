@@ -13,16 +13,34 @@ export default function manifest(): MetadataRoute.Manifest {
     id: "/",
     icons: [
       {
-        src: "/icon/icon-192x192.png",
+        src: "/icon/android/android-launchericon-192-192.png",
         sizes: "192x192",
         type: "image/png",
-        purpose: "any",
       },
       {
-        src: "/icon/icon-512x512.png",
+        src: "/icon/android/android-launchericon-512-512.png",
         sizes: "512x512",
         type: "image/png",
-        purpose: "any",
+      },
+      {
+        src: "/icon/ios/192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "/icon/ios/512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+      {
+        src: "/icon/windows11/Square150x150Logo.scale-100.png",
+        sizes: "150x150",
+        type: "image/png",
+      },
+      {
+        src: "/icon/windows11/LargeTile.scale-200.png",
+        sizes: "620x620",
+        type: "image/png",
       },
     ],
     screenshots: [
