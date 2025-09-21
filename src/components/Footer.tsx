@@ -1,6 +1,7 @@
 import { Hash } from "lucide-react";
 
 export function Footer() {
+  const year = new Date().getFullYear();
   return (
     <footer className="border-t border-border bg-background/80 backdrop-blur">
       <div className="container mx-auto px-4 py-8 md:px-6">
@@ -13,22 +14,9 @@ export function Footer() {
             <span className="text-lg font-semibold">RapidTags</span>
           </div>
 
-          {/* Links */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-            <a href="#" className="transition-colors hover:text-foreground">
-              Privacy Policy
-            </a>
-            <a href="#" className="transition-colors hover:text-foreground">
-              Terms of Service
-            </a>
-            <a href="#" className="transition-colors hover:text-foreground">
-              Support
-            </a>
-          </div>
-
           {/* Copyright */}
           <div className="text-sm text-muted-foreground">
-            © 2024 RapidTags. All rights reserved.
+            © {year} RapidTags. All rights reserved.
           </div>
         </div>
       </div>
