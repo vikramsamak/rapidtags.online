@@ -68,7 +68,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center py-24"
+      className="min-h-screen flex items-center justify-center py-8 md:py-16 lg:py-24"
     >
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-12 animate-fade-in">
