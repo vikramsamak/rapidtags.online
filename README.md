@@ -6,11 +6,11 @@ Rapitags.online is an AI-powered tool that helps you generate relevant and effec
 
 ## ✨ Features
 
-* **AI-Powered Hashtag Generation:** Get smart hashtag suggestions based on your content.
-* **Easy to Use:** Simple and intuitive interface for a seamless experience.
-* **Copy to Clipboard:** Quickly copy the generated hashtags with a single click.
-* **Responsive Design:** Works beautifully on all devices, whether desktop or mobile.
-* **Lightweight and Fast:** Built with modern technologies for optimal performance.
+- **AI-Powered Hashtag Generation:** Get smart hashtag suggestions based on your content.
+- **Easy to Use:** Simple and intuitive interface for a seamless experience.
+- **Copy to Clipboard:** Quickly copy the generated hashtags with a single click.
+- **Responsive Design:** Works beautifully on all devices, whether desktop or mobile.
+- **Lightweight and Fast:** Built with modern technologies for optimal performance.
 
 ## 🚀 Live Demo
 
@@ -30,14 +30,14 @@ You can access the live application here: [https://rapitags.online](https://rapi
 
 ## 💻 Technologies Used
 
-* **[Next.js](https://nextjs.org/):** A React framework for building server-side rendered and statically generated web applications.
-* **[React](https://reactjs.org/):** A JavaScript library for building user interfaces.
-* **[TypeScript](https://www.typescriptlang.org/):** A typed superset of JavaScript that compiles to plain JavaScript.
-* **[Tailwind CSS](https://tailwindcss.com/):** A utility-first CSS framework for rapidly building custom designs.
-* **[Shadcn/ui](https://ui.shadcn.com/):** A collection of re-usable UI components.
-* **[Lucide React](https://lucide.dev/):** A library of simply designed, beautiful icons.
-* **[Sonner](https://sonner.emilkowal.ski/):** A toast notification library for React.
-* **[Axios](https://axios-http.com/):** A promise-based HTTP client for the browser and Node.js.
+- **[Next.js](https://nextjs.org/):** A React framework for building server-side rendered and statically generated web applications.
+- **[React](https://reactjs.org/):** A JavaScript library for building user interfaces.
+- **[TypeScript](https://www.typescriptlang.org/):** A typed superset of JavaScript that compiles to plain JavaScript.
+- **[Tailwind CSS](https://tailwindcss.com/):** A utility-first CSS framework for rapidly building custom designs.
+- **[Shadcn/ui](https://ui.shadcn.com/):** A collection of re-usable UI components.
+- **[Lucide React](https://lucide.dev/):** A library of simply designed, beautiful icons.
+- **[Sonner](https://sonner.emilkowal.ski/):** A toast notification library for React.
+- **[Axios](https://axios-http.com/):** A promise-based HTTP client for the browser and Node.js.
 
 ## ⚙️ How it Works
 
