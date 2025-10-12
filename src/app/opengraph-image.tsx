@@ -38,7 +38,7 @@ export default async function Image() {
             color: "transparent",
           }}
         >
-          Rapitags.online
+          Rapidtags.online
         </div>
         <div
           style={{
