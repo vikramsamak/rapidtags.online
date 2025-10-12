@@ -11,12 +11,12 @@ export function Footer() {
             <div className="flex h-8 w-8 items-center justify-center rounded-md bg-foreground text-background">
               <Hash className="h-4 w-4" />
             </div>
-            <span className="text-lg font-semibold">RapidTags</span>
+            <span className="text-lg font-semibold">Rapidtags.online</span>
           </div>
 
           {/* Copyright */}
           <div className="text-sm text-muted-foreground">
-            © {year} RapidTags. All rights reserved.
+            © {year} Rapidtags.online. All rights reserved.
           </div>
         </div>
       </div>

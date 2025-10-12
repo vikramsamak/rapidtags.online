@@ -15,7 +15,7 @@ export function Header() {
             <Hash className="h-4 w-4" />
           </div>
           <span className="text-lg font-semibold text-foreground">
-            RapidTags
+            Rapidtags.online
           </span>
         </div>
 
