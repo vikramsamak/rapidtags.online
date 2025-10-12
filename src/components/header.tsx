@@ -1,8 +1,8 @@
 "use client";
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Hash } from "lucide-react";
+import { APPLICATION_NAME_FOR_UI } from "@/constants";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +15,7 @@ export function Header() {
             <Hash className="h-4 w-4" />
           </div>
           <span className="text-lg font-semibold text-foreground">
-            Rapidtags.online
+            {APPLICATION_NAME_FOR_UI}
           </span>
         </div>
 
