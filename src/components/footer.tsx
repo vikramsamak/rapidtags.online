@@ -1,5 +1,6 @@
 import { APPLICATION_NAME_FOR_UI } from "@/constants";
 import { Hash } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -34,7 +35,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div className="flex flex-col items-start space-y-4">
-            <h3 className="text-sm font-semibold tracking-wider text-foreground">
+            <h3 className="text-sm font-semibold  tracking-wider text-foreground">
               Menu
             </h3>
             <nav className="flex flex-col space-y-2">
@@ -61,7 +62,7 @@ export function Footer() {
 
           {/* Resources */}
           <div className="flex flex-col items-start space-y-4">
-            <h3 className="text-sm font-semibold tracking-wider text-foreground">
+            <h3 className="text-sm font-semibold  tracking-wider text-foreground">
               Resources
             </h3>
             <nav className="flex flex-col space-y-2">
@@ -86,22 +87,22 @@ export function Footer() {
 
           {/* Legal */}
           <div className="flex flex-col items-start space-y-4">
-            <h3 className="text-sm font-semibold tracking-wider text-foreground">
+            <h3 className="text-sm font-semibold  tracking-wider text-foreground">
               Legal
             </h3>
             <nav className="flex flex-col space-y-2">
-              <a
-                href="#"
+              <Link
+                href="/privacy-policy"
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Privacy Policy
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="/terms-of-service"
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Terms of Service
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
