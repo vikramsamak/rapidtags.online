@@ -9,29 +9,29 @@ The application is designed with a modern, user-friendly interface and is built 
 
 ## 2. Features
 
-* **AI-Powered Hashtag Generation:** Utilizes an external AI service to generate smart and relevant hashtag suggestions.
-* **Multi-Platform Support:** Supports various social media platforms, including Instagram, TikTok, YouTube, LinkedIn, and Twitter.
-* **Easy to Use:** Simple and intuitive interface for a seamless user experience.
-* **Copy to Clipboard:** Allows users to quickly copy the generated hashtags with a single click.
-* **Selective Copy:** Users can select specific hashtags to copy.
-* **Responsive Design:** The application is fully responsive and works beautifully on all devices, from desktops to mobile phones.
-* **Lightweight and Fast:** Built with modern technologies like Next.js and Tailwind CSS for optimal performance.
-* **Toast Notifications:** Provides feedback to the user through toast notifications for actions like successful generation or copying of hashtags.
+- **AI-Powered Hashtag Generation:** Utilizes an external AI service to generate smart and relevant hashtag suggestions.
+- **Multi-Platform Support:** Supports various social media platforms, including Instagram, TikTok, YouTube, LinkedIn, and Twitter.
+- **Easy to Use:** Simple and intuitive interface for a seamless user experience.
+- **Copy to Clipboard:** Allows users to quickly copy the generated hashtags with a single click.
+- **Selective Copy:** Users can select specific hashtags to copy.
+- **Responsive Design:** The application is fully responsive and works beautifully on all devices, from desktops to mobile phones.
+- **Lightweight and Fast:** Built with modern technologies like Next.js and Tailwind CSS for optimal performance.
+- **Toast Notifications:** Provides feedback to the user through toast notifications for actions like successful generation or copying of hashtags.
 
 ## 3. Technologies Used
 
 ### Frontend
 
-* **[Next.js](https://nextjs.org/):** A React framework for building server-side rendered and statically generated web applications.
-* **[React](https://reactjs.org/):** A JavaScript library for building user interfaces.
-* **[TypeScript](https://www.typescriptlang.org/):** A typed superset of JavaScript that compiles to plain JavaScript.
-* **[Tailwind CSS](https://tailwindcss.com/):** A utility-first CSS framework for rapidly building custom designs.
-* **[Shadcn/ui](https://ui.shadcn.com/):** A collection of re-usable UI components.
-* **[Lucide React](https://lucide.dev/):** A library of simply designed, beautiful icons.
-* **[Sonner](https://sonner.emilkowal.ski/):** A toast notification library for React.
-* **[Axios](https://axios-http.com/):** A promise-based HTTP client for the browser and Node.js.
-* **[clsx](https://github.com/lukeed/clsx):** A tiny utility for constructing `className` strings conditionally.
-* **[tailwind-merge](https://github.com/dcastil/tailwind-merge):** A utility to merge Tailwind CSS classes without style conflicts.
+- **[Next.js](https://nextjs.org/):** A React framework for building server-side rendered and statically generated web applications.
+- **[React](https://reactjs.org/):** A JavaScript library for building user interfaces.
+- **[TypeScript](https://www.typescriptlang.org/):** A typed superset of JavaScript that compiles to plain JavaScript.
+- **[Tailwind CSS](https://tailwindcss.com/):** A utility-first CSS framework for rapidly building custom designs.
+- **[Shadcn/ui](https://ui.shadcn.com/):** A collection of re-usable UI components.
+- **[Lucide React](https://lucide.dev/):** A library of simply designed, beautiful icons.
+- **[Sonner](https://sonner.emilkowal.ski/):** A toast notification library for React.
+- **[Axios](https://axios-http.com/):** A promise-based HTTP client for the browser and Node.js.
+- **[clsx](https://github.com/lukeed/clsx):** A tiny utility for constructing `className` strings conditionally.
+- **[tailwind-merge](https://github.com/dcastil/tailwind-merge):** A utility to merge Tailwind CSS classes without style conflicts.
 
 ### Backend
 
@@ -93,12 +93,12 @@ The backend logic for hashtag generation is handled by an external AI service. T
 
 ### Key Files and Directories
 
-* **`src/app/page.tsx`:** The main entry point of the application's UI.
-* **`src/app/api/generate-hashtags/route.ts`:** The API route that handles hashtag generation requests.
-* **`src/components/hero-section.tsx`:** The main component that contains the hashtag generation form and displays the results.
-* **`src/components/ui/`:** Contains the reusable UI components from Shadcn/ui.
-* **`src/utils/api.utils.ts`:** Contains the utility function for making API requests.
-* **`public/`:** Contains static assets like images and icons.
+- **`src/app/page.tsx`:** The main entry point of the application's UI.
+- **`src/app/api/generate-hashtags/route.ts`:** The API route that handles hashtag generation requests.
+- **`src/components/hero-section.tsx`:** The main component that contains the hashtag generation form and displays the results.
+- **`src/components/ui/`:** Contains the reusable UI components from Shadcn/ui.
+- **`src/utils/api.utils.ts`:** Contains the utility function for making API requests.
+- **`public/`:** Contains static assets like images and icons.
 
 ## 5. How it Works
 
@@ -115,8 +115,8 @@ The backend logic for hashtag generation is handled by an external AI service. T
 
 This endpoint is responsible for generating hashtags.
 
-* **Method:** `POST`
-* **Request Body:**
+- **Method:** `POST`
+- **Request Body:**
 
     ```json
     {
@@ -125,7 +125,7 @@ This endpoint is responsible for generating hashtags.
     }
     ```
 
-* **Success Response (200):**
+- **Success Response (200):**
 
     ```json
     {
@@ -137,7 +137,7 @@ This endpoint is responsible for generating hashtags.
     }
     ```
 
-* **Error Response (400):**
+- **Error Response (400):**
 
     ```json
     {
@@ -145,7 +145,7 @@ This endpoint is responsible for generating hashtags.
     }
     ```
 
-* **Error Response (500):**
+- **Error Response (500):**
 
     ```json
     {
@@ -157,4 +157,4 @@ This endpoint is responsible for generating hashtags.
 
 The following environment variables are required to run the application:
 
-* `GENERATE_HASHTAGS_WEBHOOK`: The URL of the external AI service's webhook for generating hashtags.
+- `GENERATE_HASHTAGS_WEBHOOK`: The URL of the external AI service's webhook for generating hashtags.
