@@ -12,7 +12,7 @@ export const JsonLd = () => {
     offers: {
       "@type": "Offer",
       price: "0",
-      priceCurrency: "USD",
+      priceCurrency: "INR",
     },
   };
 
