@@ -2,7 +2,7 @@ export const METADATA = {
   title: "Rapidtags.online | AI-Powered Hashtag Generator",
   applicationName: "Rapidtags.online",
   description:
-    "Rapidtags.online is a free, AI-powered hashtag generator that helps you find the best hashtags for your social media posts. Boost your visibility on platforms like YouTube, TikTok, Instagram, LinkedIn, and Twitter.",
+    "Find the best hashtags for your social media posts with our free AI-powered hashtag generator. Boost your visibility on YouTube, TikTok, Instagram, and more.",
   keywords: [
     "hashtag generator",
     "youtube hashtag generator",
