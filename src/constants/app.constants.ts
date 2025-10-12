@@ -23,3 +23,5 @@ export const METADATA = {
 };
 
 export const APP_URL = "https://www.rapitags.online";
+
+export const APPLICATION_NAME_FOR_UI = "Rapidtags";
