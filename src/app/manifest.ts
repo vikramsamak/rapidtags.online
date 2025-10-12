@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Rapidtags",
-    short_name: "RapidTags",
-    description: "A app build for generating hashtags.",
+    name: "Rapidtags.online",
+    short_name: "Rapidtags",
+    description: "An AI-powered hashtag generator for social media.",
     start_url: "/",
     scope: "/",
     display: "standalone",
