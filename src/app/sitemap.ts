@@ -10,11 +10,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1.0,
     },
-    {
-      url: `${APP_URL}/`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
   ];
 }
