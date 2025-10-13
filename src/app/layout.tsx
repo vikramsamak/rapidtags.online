@@ -6,6 +6,8 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { JsonLd } from "@/components/json-ld";
 import { Suspense } from "react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -34,7 +36,9 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} antialiased dark`}
     >
       <body className="font-sans bg-background text-foreground">
+        <Header />
         <Suspense fallback={null}>{children}</Suspense>
+        <Footer />
         <GoogleAnalytics gaId={GA_TAG} />
         <JsonLd />
         <Toaster position="bottom-right" />
