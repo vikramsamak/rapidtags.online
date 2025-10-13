@@ -1,6 +1,7 @@
-import { APPLICATION_NAME_FOR_UI } from "@/constants";
+import { APPLICATION_NAME_FOR_UI, NAVIGATION_LINKS } from "@/constants";
 import { Hash } from "lucide-react";
 import Link from "next/link";
+import { NavigationLinks } from "./navigation-links";
 
 export function Footer() {
   return (
@@ -38,26 +39,10 @@ export function Footer() {
             <h3 className="text-sm font-semibold  tracking-wider text-foreground">
               Menu
             </h3>
-            <nav className="flex flex-col space-y-2">
-              <a
-                href="#home"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Home
-              </a>
-              <a
-                href="#features"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Features
-              </a>
-              <a
-                href="#how-it-works"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                How it Works
-              </a>
-            </nav>
+            <NavigationLinks
+              links={NAVIGATION_LINKS}
+              navClassName="flex-col space-y-2"
+            />
           </div>
 
           {/* Resources */}

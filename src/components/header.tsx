@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Hash } from "lucide-react";
-import { APPLICATION_NAME_FOR_UI } from "@/constants";
+import { APPLICATION_NAME_FOR_UI, NAVIGATION_LINKS } from "@/constants";
+import { NavigationLinks } from "./navigation-links";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,26 +21,10 @@ export function Header() {
         </div>
 
         <div className="flex items-center space-x-6">
-          <nav className="hidden md:flex items-center space-x-6">
-            <a
-              href="#home"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="#features"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Features
-            </a>
-            <a
-              href="#how-it-works"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              How it Works
-            </a>
-          </nav>
+          <NavigationLinks
+            links={NAVIGATION_LINKS}
+            navClassName="hidden md:flex items-center space-x-6"
+          />
 
           <Button
             variant="ghost"
@@ -64,29 +49,11 @@ export function Header() {
 
       {isMenuOpen && (
         <div className="absolute top-16 left-0 right-0 bg-background/95 backdrop-blur border-b border-border md:hidden animate-in slide-in-from-top-2 duration-200">
-          <nav className="container mx-auto flex flex-col space-y-1 p-4">
-            <a
-              href="#home"
-              className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </a>
-            <a
-              href="#features"
-              className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Features
-            </a>
-            <a
-              href="#how-it-works"
-              className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              How it Works
-            </a>
-          </nav>
+          <NavigationLinks
+            links={NAVIGATION_LINKS}
+            navClassName="container mx-auto flex flex-col space-y-1 p-4"
+            linkClassName="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
+          />
         </div>
       )}
     </header>
