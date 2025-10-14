@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import { Toaster } from "@/components/ui/sonner";
-import { APP_URL, METADATA } from "@/constants";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import { JsonLd } from "@/components/json-ld";
-import { Suspense } from "react";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Toaster } from '@/components/ui/sonner';
+import { APP_URL, METADATA } from '@/constants';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
+import { JsonLd } from '@/components/json-ld';
+import { Suspense } from 'react';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
@@ -33,9 +33,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} antialiased dark`}
+      className={`${GeistSans.variable} ${GeistMono.variable} dark antialiased`}
     >
-      <body className="font-sans bg-background text-foreground">
+      <body className="bg-background text-foreground font-sans">
         <Header />
         <Suspense fallback={null}>{children}</Suspense>
         <Footer />

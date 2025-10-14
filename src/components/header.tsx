@@ -1,21 +1,21 @@
-"use client";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X, Hash } from "lucide-react";
-import { APPLICATION_NAME_FOR_UI, NAVIGATION_LINKS } from "@/constants";
-import { NavigationLinks } from "./navigation-links";
+'use client';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Menu, X, Hash } from 'lucide-react';
+import { APPLICATION_NAME_FOR_UI, NAVIGATION_LINKS } from '@/constants';
+import { NavigationLinks } from './navigation-links';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur">
+    <header className="border-border bg-background/80 sticky top-0 z-50 w-full border-b backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex items-center space-x-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-foreground text-background">
+          <div className="bg-foreground text-background flex h-8 w-8 items-center justify-center rounded-md">
             <Hash className="h-4 w-4" />
           </div>
-          <span className="text-lg font-semibold text-foreground">
+          <span className="text-foreground text-lg font-semibold">
             {APPLICATION_NAME_FOR_UI}
           </span>
         </div>
@@ -29,7 +29,7 @@ export function Header() {
           <Button
             variant="ghost"
             size="sm"
-            className="md:hidden p-2"
+            className="p-2 md:hidden"
             name="Toggle Menu"
             aria-label="Toggle Menu"
             aria-expanded={isMenuOpen}
@@ -48,7 +48,7 @@ export function Header() {
       </div>
 
       {isMenuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-background/95 backdrop-blur border-b border-border md:hidden animate-in slide-in-from-top-2 duration-200">
+        <div className="bg-background/95 border-border animate-in slide-in-from-top-2 absolute top-16 right-0 left-0 border-b backdrop-blur duration-200 md:hidden">
           <NavigationLinks
             links={NAVIGATION_LINKS}
             navClassName="container mx-auto flex flex-col space-y-1 p-4"

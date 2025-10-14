@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import { makeApiRequest } from "@/utils";
-import { ApiError } from "@/types";
+import { NextRequest, NextResponse } from 'next/server';
+import { makeApiRequest } from '@/utils';
+import { ApiError } from '@/types';
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
@@ -10,13 +10,13 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     if (!title || !platform) {
       return NextResponse.json(
-        { message: "Title and platform are required" },
-        { status: 400 }
+        { message: 'Title and platform are required' },
+        { status: 400 },
       );
     }
 
     const response = await makeApiRequest<{ hashtags: string[] }>({
-      method: "POST",
+      method: 'POST',
       url: process.env.GENERATE_HASHTAGS_WEBHOOK as string,
       data: { title, platform },
     });
@@ -27,12 +27,12 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     if (apiError && apiError.message) {
       return NextResponse.json(
         { message: apiError.message },
-        { status: apiError.status || 500 }
+        { status: apiError.status || 500 },
       );
     }
     return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 }
+      { message: 'Internal Server Error' },
+      { status: 500 },
     );
   }
 }

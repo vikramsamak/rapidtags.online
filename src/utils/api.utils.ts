@@ -1,5 +1,5 @@
-import { ApiError } from "@/types";
-import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from "axios";
+import { ApiError } from '@/types';
+import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 
 export async function makeApiRequest<T>({
   headers,
@@ -11,11 +11,11 @@ export async function makeApiRequest<T>({
 }: AxiosRequestConfig): Promise<T> {
   try {
     const config: AxiosRequestConfig = {
-      headers: headers ? headers : { "Content-Type": "application/json" },
+      headers: headers ? headers : { 'Content-Type': 'application/json' },
       baseURL: baseURL ? baseURL : process.env.NEXT_PUBLIC_API_BASE_URL,
       data,
       params,
-      method: method ? method : "GET",
+      method: method ? method : 'GET',
       url,
     };
 
@@ -31,7 +31,7 @@ export async function makeApiRequest<T>({
       const errorMessage =
         axiosError.response?.data?.message ||
         axiosError.message ||
-        "Unknown error";
+        'Unknown error';
 
       const errorStatus = axiosError.response?.status ?? 500;
 
@@ -41,7 +41,7 @@ export async function makeApiRequest<T>({
 
       throw apiError;
     } else {
-      console.error("Unexpected Error:", (error as Error).message);
+      console.error('Unexpected Error:', (error as Error).message);
       throw error;
     }
   }
