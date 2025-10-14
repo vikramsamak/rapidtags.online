@@ -1,0 +1,22 @@
+# Ignore artifacts:
+build
+coverage
+dist
+.next
+node_modules
+
+# Ignore dotfiles:
+.*
+!/.prettierrc.json
+
+# Ignore misc:
+*.lock
+*.toml
+*.mjs
+*.config.ts
+*.d.ts
+*.ico
+*.css
+*.png
+*.md
+*.json

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 interface NavLink {
   href: string;
@@ -20,14 +20,14 @@ export function NavigationLinks({
   onClick,
 }: NavigationLinksProps) {
   return (
-    <nav className={cn("flex", navClassName)}>
+    <nav className={cn('flex', navClassName)}>
       {links.map((link) => (
         <Link
           key={link.href}
           href={link.href}
           className={cn(
-            "text-sm font-medium text-muted-foreground hover:text-foreground transition-colors",
-            linkClassName
+            'text-muted-foreground hover:text-foreground text-sm font-medium transition-colors',
+            linkClassName,
           )}
           onClick={onClick}
         >

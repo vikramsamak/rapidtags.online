@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from '@/components/ui/card';
 import {
   Zap,
   Target,
@@ -6,77 +6,77 @@ import {
   Shield,
   Clock,
   Sparkles,
-} from "lucide-react";
+} from 'lucide-react';
 
 const features = [
   {
     icon: Zap,
-    title: "Lightning Fast",
+    title: 'Lightning Fast',
     description:
-      "Generate optimized hashtags in under 3 seconds with our advanced AI engine.",
+      'Generate optimized hashtags in under 3 seconds with our advanced AI engine.',
   },
   {
     icon: Target,
-    title: "Platform Optimized",
+    title: 'Platform Optimized',
     description:
       "Tailored hashtags for each platform's unique algorithm and audience behavior.",
   },
   {
     icon: Trending,
-    title: "Trending Analysis",
+    title: 'Trending Analysis',
     description:
       "Real-time trending hashtag detection to maximize your content's visibility.",
   },
   {
     icon: Shield,
-    title: "Safe & Compliant",
+    title: 'Safe & Compliant',
     description:
-      "All generated hashtags are filtered for safety and platform compliance.",
+      'All generated hashtags are filtered for safety and platform compliance.',
   },
   {
     icon: Clock,
-    title: "24/7 Available",
+    title: '24/7 Available',
     description:
-      "Generate hashtags anytime, anywhere. No limits, no restrictions.",
+      'Generate hashtags anytime, anywhere. No limits, no restrictions.',
   },
   {
     icon: Sparkles,
-    title: "Cutting-Edge & Evolving",
+    title: 'Cutting-Edge & Evolving',
     description:
-      "Our AI tool is brand new and continuously improving with fresh updates and features.",
+      'Our AI tool is brand new and continuously improving with fresh updates and features.',
   },
 ];
 
 export function WhyChooseUs() {
   return (
-    <section id="features" className="py-8 md:py-16 lg:py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-balance text-foreground">
+    <section id="features" className="bg-background py-8 md:py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 space-y-4 text-center">
+          <h2 className="text-foreground text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-5xl">
             Why Choose Our Tag Generator
           </h2>
-          <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
+          <p className="text-muted-foreground mx-auto max-w-2xl text-lg text-pretty">
             Powerful features designed to maximize your social media reach and
             engagement
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="border border-border bg-card hover-lift transition-all duration-300 glow-border"
+              className="border-border bg-card hover-lift glow-border border transition-all duration-300"
             >
-              <CardContent className="p-6 space-y-4">
-                <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center">
-                  <feature.icon className="h-6 w-6 text-foreground" />
+              <CardContent className="space-y-4 p-6">
+                <div className="bg-muted flex h-12 w-12 items-center justify-center rounded-lg">
+                  <feature.icon className="text-foreground h-6 w-6" />
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-lg font-semibold text-foreground">
+                  <h3 className="text-foreground text-lg font-semibold">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground text-pretty">
+                  <p className="text-muted-foreground text-sm text-pretty">
                     {feature.description}
                   </p>
                 </div>

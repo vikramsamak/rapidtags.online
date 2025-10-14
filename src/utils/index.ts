@@ -1,1 +1,1 @@
-export { makeApiRequest } from "./api.utils";
+export { makeApiRequest } from './api.utils';

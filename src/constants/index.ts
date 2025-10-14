@@ -3,4 +3,4 @@ export {
   METADATA,
   APPLICATION_NAME_FOR_UI,
   NAVIGATION_LINKS,
-} from "./app.constants";
+} from './app.constants';
