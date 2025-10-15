@@ -20,7 +20,7 @@ export default function PlatformSelector({
   return (
     <Select value={platform} onValueChange={setPlatform}>
       <SelectTrigger
-        className="bg-background/50 h-12 w-full border-white/10 transition-colors focus:border-white/20"
+        className="bg-background/50 !h-12 w-full border-white/10 transition-colors focus:border-white/20"
         title="Select platform"
         name="Select platform"
       >
