@@ -1,3 +1,4 @@
+'use client';
 import { toast } from 'sonner';
 import { makeApiRequest } from '@/utils';
 import clsx from 'clsx';
