@@ -55,15 +55,17 @@ export default function ContentIdeaGenerator() {
   };
 
   return (
-    <Card className="bg-card/50 glow-border w-full max-w-2xl rounded-2xl border-0 p-8 shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
+    <Card className="bg-card/50 glow-border w-full rounded-2xl border-0 p-8 shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
       <div className="space-y-6">
-        <CommonInput
-          id="topic-for-ideas"
-          placeholder="Enter a topic..."
-          value={topic}
-          setValue={setTopic}
-        />
-        <PlatformSelector platform={platform} setPlatform={setPlatform} />
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <CommonInput
+            id="topic-for-ideas"
+            placeholder="Enter a topic..."
+            value={topic}
+            setValue={setTopic}
+          />
+          <PlatformSelector platform={platform} setPlatform={setPlatform} />
+        </div>
         <Button
           onClick={handleGenerateIdeas}
           className="bg-primary hover:bg-primary/90 hover:shadow-primary/25 h-12 w-full transition-all duration-200 hover:shadow-lg"
