@@ -1,13 +1,23 @@
 import { HeroSection } from '@/components/hero-section';
-import { HowItWorks } from '@/components/how-it-works';
-import { WhyChooseUs } from '@/components/why-choose-us';
+import { Steps } from '@/components/steps';
+import { Features } from '@/components/features';
+import { HOW_IT_WORKS_STEPS, WHY_CHOOSE_US_POINTS } from '@/constants';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <HowItWorks />
-      <WhyChooseUs />
+      <Steps
+        title="How It Works"
+        description="Get amazing results in a few simple steps"
+        steps={HOW_IT_WORKS_STEPS}
+      />
+      <Features
+        title="Why Choose Our Platform"
+        description=" Powerful features designed to maximize your content's reach and
+            engagement"
+        features={WHY_CHOOSE_US_POINTS}
+      />
     </>
   );
 }
