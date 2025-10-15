@@ -1,15 +1,9 @@
 'use client';
 
+import PlatformSelector from '@/components/platform-selector';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { ContentIdea } from '@/types';
 import { makeApiRequest } from '@/utils';
 import { ArrowRight, Check, Hash } from 'lucide-react';
@@ -92,22 +86,7 @@ export default function ContentIdeaGenerator() {
                 onChange={(e) => setTopic(e.target.value)}
                 className="bg-background/50 h-12 flex-1 border-white/10 transition-colors focus:border-white/20"
               />
-              <Select value={platform} onValueChange={setPlatform}>
-                <SelectTrigger
-                  className="bg-background/50 h-12 w-full border-white/10 transition-colors focus:border-white/20"
-                  title="Select platform"
-                  name="Select platform"
-                >
-                  <SelectValue placeholder="Select platform" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="instagram">Instagram</SelectItem>
-                  <SelectItem value="tiktok">TikTok</SelectItem>
-                  <SelectItem value="youtube">YouTube</SelectItem>
-                  <SelectItem value="linkedin">LinkedIn</SelectItem>
-                  <SelectItem value="twitter">Twitter</SelectItem>
-                </SelectContent>
-              </Select>
+              <PlatformSelector platform={platform} setPlatform={setPlatform} />
               <Button
                 onClick={handleGenerateIdeas}
                 className="bg-primary hover:bg-primary/90 hover:shadow-primary/25 h-12 w-full transition-all duration-200 hover:shadow-lg"

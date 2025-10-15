@@ -3,18 +3,12 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
 import { Hash, ArrowRight, Check } from 'lucide-react';
 import { toast } from 'sonner';
 import { makeApiRequest } from '@/utils';
 import clsx from 'clsx';
+import PlatformSelector from './platform-selector';
 
 export function HeroSection() {
   const [title, setTitle] = useState('');
@@ -97,24 +91,7 @@ export function HeroSection() {
                 onChange={(e) => setTitle(e.target.value)}
                 className="bg-background/50 h-12 border-white/10 transition-colors focus:border-white/20"
               />
-
-              <Select value={platform} onValueChange={setPlatform}>
-                <SelectTrigger
-                  className="bg-background/50 h-12 w-full border-white/10 transition-colors focus:border-white/20"
-                  title="Select platform"
-                  name="Select platform"
-                >
-                  <SelectValue placeholder="Select platform" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="instagram">Instagram</SelectItem>
-                  <SelectItem value="tiktok">TikTok</SelectItem>
-                  <SelectItem value="youtube">YouTube</SelectItem>
-                  <SelectItem value="linkedin">LinkedIn</SelectItem>
-                  <SelectItem value="twitter">Twitter</SelectItem>
-                </SelectContent>
-              </Select>
-
+              <PlatformSelector platform={platform} setPlatform={setPlatform} />
               <Button
                 onClick={handleGenerate}
                 className="bg-primary hover:bg-primary/90 hover:shadow-primary/25 h-12 w-full transition-all duration-200 hover:shadow-lg"
@@ -123,7 +100,6 @@ export function HeroSection() {
                 {isGenerating ? 'Generating...' : 'Generate Hashtags'}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-
               {generatedTags.length > 0 && (
                 <div className="space-y-4 border-t border-white/10 pt-4">
                   <div className="flex items-center justify-between">
