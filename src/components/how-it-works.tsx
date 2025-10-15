@@ -1,32 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Edit3, Zap, Share2, TrendingUp } from 'lucide-react';
-
-const steps = [
-  {
-    icon: Edit3,
-    title: 'Describe Your Content',
-    description:
-      'Simply type what your post is about - a photo, video, or any content you want to share.',
-  },
-  {
-    icon: Zap,
-    title: 'Choose Your Platform',
-    description:
-      'Select from YouTube, Instagram, TikTok, LinkedIn, or Twitter for platform-optimized tags.',
-  },
-  {
-    icon: Share2,
-    title: 'Get Smart Tags',
-    description:
-      'Our AI analyzes your content and generates relevant, trending hashtags instantly.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Boost Your Reach',
-    description:
-      'Copy the tags and watch your engagement soar with optimized hashtag strategies.',
-  },
-];
+import { HOW_IT_WORKS_STEPS } from '@/constants';
 
 export function HowItWorks() {
   return (
@@ -42,7 +15,7 @@ export function HowItWorks() {
         </div>
 
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2">
-          {steps.map((step, index) => (
+          {HOW_IT_WORKS_STEPS.map((step, index) => (
             <Card
               key={index}
               className="border-border bg-card hover-lift glow-border relative border transition-all duration-300"

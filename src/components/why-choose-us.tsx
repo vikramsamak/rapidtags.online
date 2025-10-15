@@ -1,51 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
-import {
-  Zap,
-  Target,
-  TrendingUp as Trending,
-  Shield,
-  Clock,
-  Sparkles,
-} from 'lucide-react';
-
-const features = [
-  {
-    icon: Zap,
-    title: 'Lightning Fast',
-    description:
-      'Generate optimized hashtags in under 3 seconds with our advanced AI engine.',
-  },
-  {
-    icon: Target,
-    title: 'Platform Optimized',
-    description:
-      "Tailored hashtags for each platform's unique algorithm and audience behavior.",
-  },
-  {
-    icon: Trending,
-    title: 'Trending Analysis',
-    description:
-      "Real-time trending hashtag detection to maximize your content's visibility.",
-  },
-  {
-    icon: Shield,
-    title: 'Safe & Compliant',
-    description:
-      'All generated hashtags are filtered for safety and platform compliance.',
-  },
-  {
-    icon: Clock,
-    title: '24/7 Available',
-    description:
-      'Generate hashtags anytime, anywhere. No limits, no restrictions.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Cutting-Edge & Evolving',
-    description:
-      'Our AI tool is brand new and continuously improving with fresh updates and features.',
-  },
-];
+import { WHY_CHOOSE_US_POINTS } from '@/constants';
 
 export function WhyChooseUs() {
   return (
@@ -62,7 +16,7 @@ export function WhyChooseUs() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
+          {WHY_CHOOSE_US_POINTS.map((feature, index) => (
             <Card
               key={index}
               className="border-border bg-card hover-lift glow-border border transition-all duration-300"
