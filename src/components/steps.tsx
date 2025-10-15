@@ -1,21 +1,32 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { HOW_IT_WORKS_STEPS } from '@/constants';
 
-export function HowItWorks() {
+interface Step {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}
+
+interface StepsProps {
+  title: string;
+  description: string;
+  steps: Step[];
+}
+
+export function Steps({ title, description, steps }: StepsProps) {
   return (
     <section id="how-it-works" className="bg-background py-8 md:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 space-y-4 text-center">
           <h2 className="text-foreground text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-5xl">
-            How It Works
+            {title}
           </h2>
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg text-pretty">
-            Get amazing results in a few simple steps
+            {description}
           </p>
         </div>
 
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2">
-          {HOW_IT_WORKS_STEPS.map((step, index) => (
+          {steps.map((step, index) => (
             <Card
               key={index}
               className="border-border bg-card hover-lift glow-border relative border transition-all duration-300"
