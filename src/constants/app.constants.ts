@@ -28,7 +28,6 @@ export const APPLICATION_NAME_FOR_UI = 'Rapidtags';
 
 export const NAVIGATION_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/#features', label: 'Features' },
-  { href: '/#how-it-works', label: 'How it Works' },
+  { href: '/hashtag-generator', label: 'Hashtag Generator' },
   { href: '/content-idea-generator', label: 'Content Idea Generator' },
 ];
