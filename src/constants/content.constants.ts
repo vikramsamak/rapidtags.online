@@ -6,6 +6,7 @@ import {
   Edit3,
   Zap,
   TrendingUp,
+  Share2,
 } from 'lucide-react';
 
 export const HOW_IT_WORKS_STEPS = [
@@ -71,5 +72,53 @@ export const WHY_CHOOSE_US_POINTS = [
     title: 'Safe and Secure',
     description:
       'Create with confidence. Our tools are designed to be safe, secure, and compliant.',
+  },
+];
+
+export const HASHTAG_GENERATOR_FEATURES = [
+  {
+    icon: Target,
+    title: 'Platform-Specific Tags',
+    description:
+      'Get hashtags tailored for Instagram, TikTok, YouTube, and more to maximize your reach on each platform.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Trending Hashtags',
+    description:
+      'Boost your visibility with real-time trending hashtags to join current conversations.',
+  },
+  {
+    icon: Zap,
+    title: 'AI-Powered Suggestions',
+    description:
+      'Our AI analyzes your topic to provide you with the most relevant and effective hashtags.',
+  },
+];
+
+export const HASHTAG_GENERATOR_STEPS = [
+  {
+    icon: Edit3,
+    title: 'Enter Your Topic',
+    description:
+      "Describe the content you're posting about to get relevant hashtag suggestions.",
+  },
+  {
+    icon: Target,
+    title: 'Select Your Platform',
+    description:
+      'Choose the social media platform you are targeting for optimized results.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Generate & Select',
+    description:
+      'Get a list of AI-generated hashtags and select the ones that fit your content best.',
+  },
+  {
+    icon: Share2,
+    title: 'Copy & Paste',
+    description:
+      'Easily copy your selected hashtags and paste them into your post.',
   },
 ];
