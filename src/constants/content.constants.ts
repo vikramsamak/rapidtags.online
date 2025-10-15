@@ -5,72 +5,71 @@ import {
   Sparkles,
   Edit3,
   Zap,
-  Share2,
   TrendingUp,
 } from 'lucide-react';
 
 export const HOW_IT_WORKS_STEPS = [
   {
-    icon: Edit3,
-    title: 'Describe Your Content',
-    description:
-      'Simply type what your post is about - a photo, video, or any content you want to share.',
-  },
-  {
     icon: Zap,
-    title: 'Choose Your Platform',
+    title: 'Choose Your Tool',
     description:
-      'Select from YouTube, Instagram, TikTok, LinkedIn, or Twitter for platform-optimized tags.',
+      'Select the right tool for your needs, like the Hashtag Generator or Content Idea Generator.',
   },
   {
-    icon: Share2,
-    title: 'Get Smart Tags',
+    icon: Edit3,
+    title: 'Describe Your Topic',
     description:
-      'Our AI analyzes your content and generates relevant, trending hashtags instantly.',
+      'Provide a keyword or a brief description of your content, and let our AI do the rest.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Get Instant Results',
+    description:
+      'Our AI analyzes your input and instantly generates creative outputs for you.',
   },
   {
     icon: TrendingUp,
-    title: 'Boost Your Reach',
+    title: 'Elevate Your Content',
     description:
-      'Copy the tags and watch your engagement soar with optimized hashtag strategies.',
+      'Use the generated results to boost your online presence and engagement.',
   },
 ];
 
 export const WHY_CHOOSE_US_POINTS = [
   {
-    icon: Zap,
-    title: 'Lightning Fast',
+    icon: Sparkles,
+    title: 'AI-Powered Creativity',
     description:
-      'Generate optimized hashtags in under 3 seconds with our advanced AI engine.',
+      'Get instant access to AI-generated hashtags, content ideas, and more to fuel your creativity.',
+  },
+  {
+    icon: Zap,
+    title: 'All-in-One Toolkit',
+    description:
+      'A versatile toolkit for all your content needs, from hashtags to idea generation and beyond.',
   },
   {
     icon: Target,
     title: 'Platform Optimized',
     description:
-      "Tailored hashtags for each platform's unique algorithm and audience behavior.",
+      "Tailored suggestions for each platform's unique algorithm and audience behavior.",
   },
   {
     icon: TrendingUp,
-    title: 'Trending Analysis',
+    title: 'Boost Your Reach',
     description:
-      "Real-time trending hashtag detection to maximize your content's visibility.",
-  },
-  {
-    icon: Shield,
-    title: 'Safe & Compliant',
-    description:
-      'All generated hashtags are filtered for safety and platform compliance.',
+      'Drive more visibility and interaction with AI-powered content strategies.',
   },
   {
     icon: Clock,
-    title: '24/7 Available',
+    title: 'Always Available',
     description:
-      'Generate hashtags anytime, anywhere. No limits, no restrictions.',
+      'Access our tools 24/7, with continuous updates and new features to keep you ahead.',
   },
   {
-    icon: Sparkles,
-    title: 'Cutting-Edge & Evolving',
+    icon: Shield,
+    title: 'Safe and Secure',
     description:
-      'Our AI tool is brand new and continuously improving with fresh updates and features.',
+      'Create with confidence. Our tools are designed to be safe, secure, and compliant.',
   },
 ];
