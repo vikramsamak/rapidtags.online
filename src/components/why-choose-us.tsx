@@ -7,10 +7,10 @@ export function WhyChooseUs() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 space-y-4 text-center">
           <h2 className="text-foreground text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-5xl">
-            Why Choose Our Tag Generator
+            Why Choose Our Platform
           </h2>
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg text-pretty">
-            Powerful features designed to maximize your social media reach and
+            Powerful features designed to maximize your content&apos;s reach and
             engagement
           </p>
         </div>

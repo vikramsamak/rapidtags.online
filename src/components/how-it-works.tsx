@@ -10,7 +10,7 @@ export function HowItWorks() {
             How It Works
           </h2>
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg text-pretty">
-            Generate perfect hashtags in seconds with our simple 4-step process
+            Get amazing results in a few simple steps
           </p>
         </div>
 
