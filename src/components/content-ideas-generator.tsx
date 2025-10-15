@@ -12,7 +12,7 @@ import PlatformSelector from './platform-selector';
 export default function ContentIdeaGenerator() {
   const [isContentGenerating, setIsContentGenerating] = useState(false);
   const [topic, setTopic] = useState('');
-  const [platform, setPlatform] = useState('instagram');
+  const [platform, setPlatform] = useState('');
   const [contentIdeas, setContentIdeas] = useState<ContentIdea[]>([]);
   const [isCopiedIdeas, setIsCopiedIdeas] = useState(false);
 
