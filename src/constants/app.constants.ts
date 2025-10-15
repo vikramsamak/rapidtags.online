@@ -30,4 +30,5 @@ export const NAVIGATION_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/#features', label: 'Features' },
   { href: '/#how-it-works', label: 'How it Works' },
+  { href: '/content-idea-generator', label: 'Content Idea Generator' },
 ];
