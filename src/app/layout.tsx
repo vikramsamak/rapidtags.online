@@ -37,7 +37,9 @@ export default function RootLayout({
     >
       <body className="bg-background text-foreground font-sans">
         <Header />
-        <Suspense fallback={null}>{children}</Suspense>
+        <Suspense fallback={null}>
+          <main className="flex min-h-screen flex-col"> {children}</main>
+        </Suspense>
         <Footer />
         <GoogleAnalytics gaId={GA_TAG} />
         <JsonLd />
