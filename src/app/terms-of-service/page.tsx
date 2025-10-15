@@ -1,7 +1,7 @@
 export default function TermsOfService() {
   return (
-    <main className="bg-background container mx-auto px-4 py-8 md:px-6">
-      <div className="mx-auto max-w-2xl">
+    <section id="terms-of-service" className="py-8 md:py-16 lg:py-24">
+      <div className="container mx-auto px-4 md:px-6">
         <h1 className="mb-4 text-3xl font-bold">Terms of Service</h1>
         <p className="text-muted-foreground mb-4">
           Last updated: October 13, 2025
@@ -54,6 +54,6 @@ export default function TermsOfService() {
           </a>
         </p>
       </div>
-    </main>
+    </section>
   );
 }
