@@ -1,9 +1,9 @@
 'use client';
 
+import CommonInput from '@/components/common-input';
 import PlatformSelector from '@/components/platform-selector';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
 import { ContentIdea } from '@/types';
 import { makeApiRequest } from '@/utils';
 import { ArrowRight, Check, Hash } from 'lucide-react';
@@ -78,13 +78,11 @@ export default function ContentIdeaGenerator() {
           </div>
           <Card className="bg-card/50 glow-border w-full max-w-2xl rounded-2xl border-0 p-8 shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
             <div className="space-y-6">
-              <Input
-                id="topic"
+              <CommonInput
+                id="topic-for-ideas"
                 placeholder="Enter a topic..."
-                type="text"
                 value={topic}
-                onChange={(e) => setTopic(e.target.value)}
-                className="bg-background/50 h-12 flex-1 border-white/10 transition-colors focus:border-white/20"
+                setValue={setTopic}
               />
               <PlatformSelector platform={platform} setPlatform={setPlatform} />
               <Button

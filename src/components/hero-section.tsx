@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Hash, ArrowRight, Check } from 'lucide-react';
 import { toast } from 'sonner';
 import { makeApiRequest } from '@/utils';
 import clsx from 'clsx';
 import PlatformSelector from './platform-selector';
+import CommonInput from './common-input';
 
 export function HeroSection() {
   const [title, setTitle] = useState('');
@@ -83,13 +83,11 @@ export function HeroSection() {
 
           <Card className="bg-card/50 glow-border w-full max-w-2xl rounded-2xl border-0 p-8 shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
             <div className="space-y-6">
-              <Input
-                id="post-content"
-                placeholder="Describe your content..."
-                type="text"
+              <CommonInput
+                id="topic-for-hshtags"
+                placeholder="Enter a topic..."
                 value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                className="bg-background/50 h-12 border-white/10 transition-colors focus:border-white/20"
+                setValue={setTitle}
               />
               <PlatformSelector platform={platform} setPlatform={setPlatform} />
               <Button
