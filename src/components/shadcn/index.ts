@@ -5,3 +5,4 @@ export * from './label';
 export * from './select';
 export * from './skeleton';
 export * from './sonner';
+export * from './scroll-area';
