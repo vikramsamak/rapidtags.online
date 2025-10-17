@@ -1,6 +1,4 @@
-import { HeroSection } from '@/components/custom/hero-section';
-import { Steps } from '@/components/custom/steps';
-import { Features } from '@/components/custom/features';
+import { Features, HeroSection, Steps } from '@/components';
 import { HOW_IT_WORKS_STEPS, WHY_CHOOSE_US_POINTS } from '@/constants';
 
 export default function Home() {
