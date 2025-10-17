@@ -122,3 +122,51 @@ export const HASHTAG_GENERATOR_STEPS = [
       'Easily copy your selected hashtags and paste them into your post.',
   },
 ];
+
+export const CONTENT_IDEA_GENERATOR_FEATURES = [
+  {
+    icon: Sparkles,
+    title: 'Endless Inspiration',
+    description:
+      'Generate a limitless stream of content ideas for your blog, social media, or marketing campaigns.',
+  },
+  {
+    icon: Target,
+    title: 'Audience-Focused',
+    description:
+      'Get ideas that resonate with your target audience and align with their interests.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Stay Ahead of Trends',
+    description:
+      'Discover trending topics and seasonal ideas to keep your content fresh and relevant.',
+  },
+];
+
+export const CONTENT_IDEA_GENERATOR_STEPS = [
+  {
+    icon: Edit3,
+    title: 'Enter Your Keyword',
+    description:
+      'Provide a keyword or topic to get a wide range of content ideas.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Generate Ideas',
+    description:
+      'Our AI will generate a list of creative and engaging content ideas for you.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Select and Develop',
+    description:
+      'Choose the best ideas and start creating compelling content for your audience.',
+  },
+  {
+    icon: Share2,
+    title: 'Publish and Grow',
+    description:
+      'Share your content and watch your online presence and engagement grow.',
+  },
+];
