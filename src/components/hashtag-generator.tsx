@@ -6,12 +6,23 @@ import PlatformSelector from './platform-selector';
 import CommonInput from './common-input';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from '@/components/ui/card';
 import { ArrowRight, Check } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function HashtagGenerator() {
   const [title, setTitle] = useState('');
   const [platform, setPlatform] = useState('');
+  const [keywords, setKeywords] = useState('');
+  const [tone, setTone] = useState('');
+  const [audience, setAudience] = useState('');
+
   const [generatedTags, setGeneratedTags] = useState<string[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -20,13 +31,15 @@ export default function HashtagGenerator() {
   const handleGenerate = async () => {
     try {
       setIsGenerating(true);
+      setGeneratedTags([]); // Clear previous results
       const response: { data: string[] } = await makeApiRequest({
         url: '/api/generate-hashtags',
         method: 'POST',
-        data: { title, platform },
+        data: { title, platform, keywords, tone, audience },
       });
       toast.success('Hashtags generated successfully!');
       setGeneratedTags(response.data);
+      setSelectedTags([]); // Reset selection
     } catch (error) {
       if (error instanceof Error) {
         toast.error('Something went wrong. Please try again.');
@@ -37,89 +50,156 @@ export default function HashtagGenerator() {
   };
 
   const handleCopy = async () => {
-    if (isCopied) {
-      return;
-    }
-
-    if (generatedTags.length === 0) {
-      toast.error('No hashtags to copy.');
-      return;
-    }
-
+    if (isCopied) return;
     if (selectedTags.length === 0) {
-      toast.error('No hashtags selected.');
+      toast.error('No hashtags selected to copy.');
       return;
     }
-
-    const tagsText = selectedTags.join(' ');
-    await navigator.clipboard.writeText(tagsText);
+    await navigator.clipboard.writeText(selectedTags.join(' '));
     setIsCopied(true);
-    toast.success('Hashtags copied to clipboard!');
+    toast.success('Selected hashtags copied to clipboard!');
     setTimeout(() => setIsCopied(false), 2000);
   };
 
-  return (
-    <Card className="bg-card/50 glow-border w-full rounded-2xl border-0 p-8 shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
-      <div className="space-y-6">
-        <div className="flex flex-col gap-4 sm:flex-row">
-          <CommonInput
-            id="topic-for-hshtags"
-            placeholder="Enter a topic..."
-            value={title}
-            setValue={setTitle}
-          />
-          <PlatformSelector platform={platform} setPlatform={setPlatform} />
+  const handleTagSelect = (tag: string) => {
+    setSelectedTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
+    );
+  };
+
+  const handleSelectAll = () => {
+    if (selectedTags.length === generatedTags.length) {
+      setSelectedTags([]);
+    } else {
+      setSelectedTags(generatedTags);
+    }
+  };
+
+  const renderOutput = () => {
+    if (isGenerating) {
+      return (
+        <div className="space-y-2">
+          <Skeleton className="h-8 w-1/3" />
+          <div className="flex flex-wrap gap-2">
+            {Array.from({ length: 15 }).map((_, i) => (
+              <Skeleton key={i} className="h-8 w-24 rounded-full" />
+            ))}
+          </div>
         </div>
-        <Button
-          onClick={handleGenerate}
-          className="bg-primary hover:bg-primary/90 hover:shadow-primary/25 h-12 w-full transition-all duration-200 hover:shadow-lg"
-          disabled={!title || !platform || isGenerating}
-        >
-          {isGenerating ? 'Generating...' : 'Generate Hashtags'}
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-        {generatedTags.length > 0 && (
-          <div className="space-y-4 border-t border-white/10 pt-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-foreground text-sm font-medium">
-                Generated Hashtags
-              </h3>
+      );
+    }
+
+    if (generatedTags.length > 0) {
+      return (
+        <div className="space-y-4">
+          <div className="flex w-full items-center justify-between">
+            <h3 className="text-lg font-semibold">Your Results</h3>
+            <div className="flex items-center gap-2">
               <Button
-                onClick={handleCopy}
                 variant="outline"
                 size="sm"
-                disabled={isCopied || selectedTags.length === 0}
-                className="bg-background/50 hover:bg-background/70 h-8 border-white/10 px-3 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+                onClick={handleSelectAll}
+                className="bg-transparent hover:bg-white/10"
               >
-                <Check className="mr-1 h-3 w-3" />
+                {selectedTags.length === generatedTags.length
+                  ? 'Deselect All'
+                  : 'Select All'}
+              </Button>
+              <Button
+                size="sm"
+                onClick={handleCopy}
+                disabled={isCopied || selectedTags.length === 0}
+              >
+                <Check className="mr-2 h-4 w-4" />
                 {isCopied ? 'Copied' : `Copy (${selectedTags.length})`}
               </Button>
             </div>
-            <div className="bg-background/30 flex flex-wrap gap-2 rounded-lg border border-white/5 p-4">
-              {generatedTags.map((tag, index) => (
-                <span
-                  key={index}
-                  onClick={() =>
-                    setSelectedTags((prev) =>
-                      prev.includes(tag)
-                        ? prev.filter((t) => t !== tag)
-                        : [...prev, tag],
-                    )
-                  }
-                  className={clsx(
-                    'user-select-none inline-flex cursor-pointer items-center rounded-full px-3 py-1 text-xs font-medium transition-colors select-none',
-                    selectedTags.includes(tag)
-                      ? 'bg-primary text-primary-foreground border-primary border'
-                      : 'bg-muted text-muted-foreground hover:bg-muted/80 border border-transparent',
-                  )}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
-        )}
+          <div className="bg-background/30 flex w-full flex-wrap gap-2 rounded-lg border border-white/5 p-4">
+            {generatedTags.map((tag, index) => (
+              <button
+                key={index}
+                onClick={() => handleTagSelect(tag)}
+                className={clsx(
+                  'inline-flex cursor-pointer items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors select-none',
+                  selectedTags.includes(tag)
+                    ? 'bg-primary text-primary-foreground border-primary'
+                    : 'bg-muted text-muted-foreground hover:bg-muted/80 border-transparent',
+                )}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="flex h-full items-center justify-center rounded-lg border border-dashed border-white/10 p-8">
+        <p className="text-muted-foreground text-center">
+          Your generated hashtags will appear here.
+        </p>
       </div>
+    );
+  };
+
+  return (
+    <Card className="glow-border w-full border-0 ring-1 ring-white/10 backdrop-blur-sm">
+      <CardHeader className="text-center">
+        <CardTitle className="text-2xl">Hashtag Generator</CardTitle>
+        <CardDescription>
+          Generate the perfect hashtags for your content on any platform.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Left Side: Inputs */}
+          <div className="space-y-4">
+            <CommonInput
+              id="topic-for-hashtags"
+              label="Topic"
+              placeholder="e.g., AI in marketing, Healthy recipes"
+              value={title}
+              setValue={setTitle}
+            />
+            <PlatformSelector platform={platform} setPlatform={setPlatform} />
+            <CommonInput
+              id="keywords"
+              label="Keywords (Optional)"
+              placeholder="e.g., SEO, social media, content creation"
+              value={keywords}
+              setValue={setKeywords}
+            />
+            <CommonInput
+              id="tone"
+              label="Tone (Optional)"
+              placeholder="e.g., Professional, Casual, Humorous"
+              value={tone}
+              setValue={setTone}
+            />
+            <CommonInput
+              id="audience"
+              label="Target Audience (Optional)"
+              placeholder="e.g., Small business owners, Students"
+              value={audience}
+              setValue={setAudience}
+            />
+            <Button
+              onClick={handleGenerate}
+              size="lg"
+              className="w-full transition-all duration-200"
+              disabled={!title || !platform || isGenerating}
+            >
+              {isGenerating ? 'Generating...' : 'Generate Hashtags'}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+
+          {/* Right Side: Output */}
+          <div className="rounded-lg bg-white/5 p-4">{renderOutput()}</div>
+        </div>
+      </CardContent>
     </Card>
   );
 }
