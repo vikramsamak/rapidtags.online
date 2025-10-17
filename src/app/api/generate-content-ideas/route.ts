@@ -44,11 +44,11 @@ async function getMockResponse(): Promise<typeof MOCK_RESPONSE> {
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const body = await req.json();
-    const { title, platform } = body;
+    const { topic, platform } = body;
 
-    if (!title || !platform) {
+    if (!topic || !platform) {
       return NextResponse.json(
-        { message: 'Title and platform are required' },
+        { message: 'Topic and platform are required' },
         { status: 400 },
       );
     }
