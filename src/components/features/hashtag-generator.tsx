@@ -2,9 +2,8 @@
 import { toast } from 'sonner';
 import { makeApiRequest } from '@/utils';
 import clsx from 'clsx';
-import CustomSelector from './custom-selector';
 import { PLATFORM_OPTIONS } from '@/constants';
-import CustomInput from './custom-input';
+import { CustomInput, CustomSelector } from '../core';
 import { useState } from 'react';
 import { Button } from '@/components/shadcn/button';
 import {
@@ -17,7 +16,7 @@ import {
 import { ArrowRight, Check } from 'lucide-react';
 import { Skeleton } from '@/components/shadcn/skeleton';
 
-export default function HashtagGenerator() {
+export function HashtagGenerator() {
   const [title, setTitle] = useState('');
   const [platform, setPlatform] = useState('');
   const [keywords, setKeywords] = useState('');
