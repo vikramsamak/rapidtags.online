@@ -2,7 +2,8 @@
 import { toast } from 'sonner';
 import { makeApiRequest } from '@/utils';
 import clsx from 'clsx';
-import PlatformSelector from './platform-selector';
+import CustomSelector from './custom-selector';
+import { PLATFORM_OPTIONS } from '@/constants';
 import CommonInput from './common-input';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -163,7 +164,14 @@ export default function HashtagGenerator() {
               value={title}
               setValue={setTitle}
             />
-            <PlatformSelector platform={platform} setPlatform={setPlatform} />
+            <CustomSelector
+              id="platform"
+              label="Platform"
+              value={platform}
+              setValue={setPlatform}
+              options={PLATFORM_OPTIONS}
+              placeholder="Select a platform"
+            />
             <CommonInput
               id="keywords"
               label="Keywords (Optional)"
