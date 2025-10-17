@@ -1,28 +1,39 @@
 'use client';
-import { Button } from '@/components/shadcn/button';
-import { Card } from '@/components/shadcn/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/shadcn/card';
 import { ContentIdea } from '@/types';
 import { makeApiRequest } from '@/utils';
 import { ArrowRight, Check } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import CustomInput from './custom-input';
-import PlatformSelector from './platform-selector';
+import { CustomInput, CustomSelector } from '../core';
+import { PLATFORM_OPTIONS } from '@/constants';
+import { Button } from '../shadcn/button';
+import { Skeleton } from '../shadcn/skeleton';
 
-export default function ContentIdeaGenerator() {
+export function ContentIdeaGenerator() {
   const [isContentGenerating, setIsContentGenerating] = useState(false);
   const [topic, setTopic] = useState('');
   const [platform, setPlatform] = useState('');
+  const [keywords, setKeywords] = useState('');
+  const [tone, setTone] = useState('');
+  const [audience, setAudience] = useState('');
   const [contentIdeas, setContentIdeas] = useState<ContentIdea[]>([]);
   const [isCopiedIdeas, setIsCopiedIdeas] = useState(false);
 
   const handleGenerateIdeas = async () => {
     try {
       setIsContentGenerating(true);
+      setContentIdeas([]);
       const response: { data: ContentIdea[] } = await makeApiRequest({
         url: '/api/generate-content-ideas',
         method: 'POST',
-        data: { topic, platform },
+        data: { topic, platform, keywords, tone, audience },
       });
       toast.success('Content ideas generated successfully!');
       setContentIdeas(response.data);
@@ -54,59 +65,117 @@ export default function ContentIdeaGenerator() {
     setTimeout(() => setIsCopiedIdeas(false), 2000);
   };
 
-  return (
-    <Card className="bg-card/50 glow-border w-full rounded-2xl border-0 p-8 shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
-      <div className="space-y-6">
-        <div className="flex flex-col gap-4 sm:flex-row">
-          <CustomInput
-            id="topic-for-ideas"
-            placeholder="Enter a topic..."
-            value={topic}
-            setValue={setTopic}
-          />
-          <PlatformSelector platform={platform} setPlatform={setPlatform} />
+  const renderOutput = () => {
+    if (isContentGenerating) {
+      return (
+        <div className="space-y-4">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="space-y-2">
+              <Skeleton className="h-6 w-3/4" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-5/6" />
+            </div>
+          ))}
         </div>
-        <Button
-          onClick={handleGenerateIdeas}
-          className="bg-primary hover:bg-primary/90 hover:shadow-primary/25 h-12 w-full transition-all duration-200 hover:shadow-lg"
-          disabled={!topic || isContentGenerating}
-        >
-          {isContentGenerating ? 'Generating...' : 'Generate Ideas'}
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-        {contentIdeas.length > 0 && (
-          <div className="space-y-4 border-t border-white/10 pt-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-foreground text-sm font-medium">
-                Generated Ideas
-              </h3>
-              <Button
-                onClick={handleCopyIdeas}
-                variant="outline"
-                size="sm"
-                disabled={isCopiedIdeas}
-                className="bg-background/50 hover:bg-background/70 h-8 border-white/10 px-3 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <Check className="mr-1 h-3 w-3" />
-                {isCopiedIdeas ? 'Copied' : 'Copy All'}
-              </Button>
-            </div>
-            <div className="flex flex-col gap-4 text-left">
-              {contentIdeas.map((idea, index) => (
-                <Card
-                  key={index}
-                  className="bg-background/30 border-white/5 p-4"
-                >
-                  <h4 className="text-foreground font-bold">{idea.title}</h4>
-                  <p className="text-muted-foreground text-sm">
-                    {idea.description}
-                  </p>
-                </Card>
-              ))}
-            </div>
+      );
+    }
+
+    if (contentIdeas.length > 0) {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold">Your Results</h3>
+            <Button
+              size="sm"
+              onClick={handleCopyIdeas}
+              disabled={isCopiedIdeas}
+            >
+              <Check className="mr-2 h-4 w-4" />
+              {isCopiedIdeas ? 'Copied' : 'Copy All'}
+            </Button>
           </div>
-        )}
+          <div className="flex flex-col gap-4 text-left">
+            {contentIdeas.map((idea, index) => (
+              <Card key={index} className="bg-background/30 border-white/5 p-4">
+                <h4 className="text-foreground font-bold">{idea.title}</h4>
+                <p className="text-muted-foreground text-sm">
+                  {idea.description}
+                </p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div className="flex h-full items-center justify-center rounded-lg border border-dashed border-white/10 p-8">
+        <p className="text-muted-foreground text-center">
+          Your generated content ideas will appear here.
+        </p>
       </div>
+    );
+  };
+
+  return (
+    <Card className="glow-border w-full border-0 ring-1 ring-white/10 backdrop-blur-sm">
+      <CardHeader className="text-center">
+        <CardTitle className="text-2xl">Content Idea Generator</CardTitle>
+        <CardDescription>
+          Generate viral content ideas for your next big hit.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="space-y-4">
+            <CustomInput
+              id="topic-for-ideas"
+              label="Topic"
+              placeholder="e.g., The future of AI, Sustainable living"
+              value={topic}
+              setValue={setTopic}
+            />
+            <CustomSelector
+              id="platform"
+              label="Platform"
+              value={platform}
+              setValue={setPlatform}
+              options={PLATFORM_OPTIONS}
+              placeholder="Select a platform"
+            />
+            <CustomInput
+              id="keywords"
+              label="Keywords (Optional)"
+              placeholder="e.g., tech, innovation, environment"
+              value={keywords}
+              setValue={setKeywords}
+            />
+            <CustomInput
+              id="tone"
+              label="Tone (Optional)"
+              placeholder="e.g., Informative, Humorous, Inspirational"
+              value={tone}
+              setValue={setTone}
+            />
+            <CustomInput
+              id="audience"
+              label="Target Audience (Optional)"
+              placeholder="e.g., Tech enthusiasts, Eco-conscious consumers"
+              value={audience}
+              setValue={setAudience}
+            />
+            <Button
+              onClick={handleGenerateIdeas}
+              size="lg"
+              className="w-full transition-all duration-200"
+              disabled={!topic || !platform || isContentGenerating}
+            >
+              {isContentGenerating ? 'Generating...' : 'Generate Ideas'}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+          <div className="rounded-lg bg-white/5 p-4">{renderOutput()}</div>
+        </div>
+      </CardContent>
     </Card>
   );
 }
