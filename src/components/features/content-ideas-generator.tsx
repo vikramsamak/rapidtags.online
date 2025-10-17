@@ -14,6 +14,7 @@ import { toast } from 'sonner';
 import { CustomInput, CustomSelector } from '../core';
 import { PLATFORM_OPTIONS } from '@/constants';
 import { Button } from '../shadcn/button';
+import { ScrollArea } from '@/components';
 import { Skeleton } from '../shadcn/skeleton';
 
 export function ContentIdeaGenerator() {
@@ -94,16 +95,21 @@ export function ContentIdeaGenerator() {
               {isCopiedIdeas ? 'Copied' : 'Copy All'}
             </Button>
           </div>
-          <div className="flex flex-col gap-4 text-left">
-            {contentIdeas.map((idea, index) => (
-              <Card key={index} className="bg-background/30 border-white/5 p-4">
-                <h4 className="text-foreground font-bold">{idea.title}</h4>
-                <p className="text-muted-foreground text-sm">
-                  {idea.description}
-                </p>
-              </Card>
-            ))}
-          </div>
+          <ScrollArea className="h-[400px] w-full">
+            <div className="flex flex-col gap-4 text-left">
+              {contentIdeas.map((idea, index) => (
+                <Card
+                  key={index}
+                  className="bg-background/30 border-white/5 p-4"
+                >
+                  <h4 className="text-foreground font-bold">{idea.title}</h4>
+                  <p className="text-muted-foreground text-sm">
+                    {idea.description}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </ScrollArea>
         </div>
       );
     }

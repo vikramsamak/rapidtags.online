@@ -14,6 +14,7 @@ import {
   CardContent,
 } from '@/components/shadcn/card';
 import { ArrowRight, Check } from 'lucide-react';
+import { ScrollArea } from '@/components';
 import { Skeleton } from '@/components/shadcn/skeleton';
 
 export function HashtagGenerator() {
@@ -115,22 +116,24 @@ export function HashtagGenerator() {
               </Button>
             </div>
           </div>
-          <div className="bg-background/30 flex w-full flex-wrap gap-2 rounded-lg border border-white/5 p-4">
-            {generatedTags.map((tag, index) => (
-              <button
-                key={index}
-                onClick={() => handleTagSelect(tag)}
-                className={clsx(
-                  'inline-flex cursor-pointer items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors select-none',
-                  selectedTags.includes(tag)
-                    ? 'bg-primary text-primary-foreground border-primary'
-                    : 'bg-muted text-muted-foreground hover:bg-muted/80 border-transparent',
-                )}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
+          <ScrollArea className="h-[400px] w-full">
+            <div className="bg-background/30 flex w-full flex-wrap gap-2 rounded-lg border border-white/5 p-4">
+              {generatedTags.map((tag, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleTagSelect(tag)}
+                  className={clsx(
+                    'inline-flex cursor-pointer items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors select-none',
+                    selectedTags.includes(tag)
+                      ? 'bg-primary text-primary-foreground border-primary'
+                      : 'bg-muted text-muted-foreground hover:bg-muted/80 border-transparent',
+                  )}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
+          </ScrollArea>
         </div>
       );
     }
