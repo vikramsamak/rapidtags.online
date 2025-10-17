@@ -1,6 +1,6 @@
-import HashtagGenerator from '@/components/hashtag-generator';
-import { Features } from '@/components/features';
-import { Steps } from '@/components/steps';
+import HashtagGenerator from '@/components/custom/hashtag-generator';
+import { Features } from '@/components/custom/features';
+import { Steps } from '@/components/custom/steps';
 import {
   HASHTAG_GENERATOR_FEATURES,
   HASHTAG_GENERATOR_STEPS,

@@ -1,5 +1,5 @@
-import { Input } from './shadcn/input';
-import { Label } from './shadcn/label';
+import { Input } from '../shadcn/input';
+import { Label } from '../shadcn/label';
 
 interface CommonInputProps {
   id: string;
@@ -10,7 +10,7 @@ interface CommonInputProps {
   setValue: (value: string) => void;
 }
 
-export default function CommonInput({
+export default function CustomInput({
   id,
   label,
   type = 'text',

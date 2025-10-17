@@ -4,7 +4,7 @@ import { makeApiRequest } from '@/utils';
 import clsx from 'clsx';
 import CustomSelector from './custom-selector';
 import { PLATFORM_OPTIONS } from '@/constants';
-import CommonInput from './common-input';
+import CustomInput from './custom-input';
 import { useState } from 'react';
 import { Button } from '@/components/shadcn/button';
 import {
@@ -157,7 +157,7 @@ export default function HashtagGenerator() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Left Side: Inputs */}
           <div className="space-y-4">
-            <CommonInput
+            <CustomInput
               id="topic-for-hashtags"
               label="Topic"
               placeholder="e.g., AI in marketing, Healthy recipes"
@@ -172,21 +172,21 @@ export default function HashtagGenerator() {
               options={PLATFORM_OPTIONS}
               placeholder="Select a platform"
             />
-            <CommonInput
+            <CustomInput
               id="keywords"
               label="Keywords (Optional)"
               placeholder="e.g., SEO, social media, content creation"
               value={keywords}
               setValue={setKeywords}
             />
-            <CommonInput
+            <CustomInput
               id="tone"
               label="Tone (Optional)"
               placeholder="e.g., Professional, Casual, Humorous"
               value={tone}
               setValue={setTone}
             />
-            <CommonInput
+            <CustomInput
               id="audience"
               label="Target Audience (Optional)"
               placeholder="e.g., Small business owners, Students"

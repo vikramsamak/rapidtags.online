@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction } from 'react';
-import { Label } from './shadcn/label';
+import { Label } from '../shadcn/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './shadcn/select';
+} from '../shadcn/select';
 
 interface Option {
   value: string;

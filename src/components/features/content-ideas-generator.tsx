@@ -6,7 +6,7 @@ import { makeApiRequest } from '@/utils';
 import { ArrowRight, Check } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import CommonInput from './common-input';
+import CustomInput from './custom-input';
 import PlatformSelector from './platform-selector';
 
 export default function ContentIdeaGenerator() {
@@ -58,7 +58,7 @@ export default function ContentIdeaGenerator() {
     <Card className="bg-card/50 glow-border w-full rounded-2xl border-0 p-8 shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
       <div className="space-y-6">
         <div className="flex flex-col gap-4 sm:flex-row">
-          <CommonInput
+          <CustomInput
             id="topic-for-ideas"
             placeholder="Enter a topic..."
             value={topic}

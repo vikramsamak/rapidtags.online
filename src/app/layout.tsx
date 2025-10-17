@@ -4,10 +4,10 @@ import { APP_URL, METADATA } from '@/constants';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { JsonLd } from '@/components/json-ld';
+import { JsonLd } from '@/components/custom/json-ld';
 import { Suspense } from 'react';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import { Header } from '@/components/custom/header';
+import { Footer } from '@/components/custom/footer';
 import './globals.css';
 
 export const metadata: Metadata = {

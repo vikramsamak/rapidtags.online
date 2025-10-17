@@ -1,4 +1,4 @@
-import ContentIdeaGenerator from '@/components/content-ideas-generator';
+import ContentIdeaGenerator from '@/components/custom/content-ideas-generator';
 
 export default function ContentIdeaGeneratorPage() {
   return <ContentIdeaGenerator />;
