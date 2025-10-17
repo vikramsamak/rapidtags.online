@@ -9,7 +9,7 @@ import {
 export default function HashtagGeneratorPage() {
   return (
     <>
-      <section id="hashtag-generator" className="py-8 md:py-16 lg:py-24">
+      <section id="hashtag-generator" className="py-2 md:py-4 lg:py-6">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <HashtagGenerator />
         </div>

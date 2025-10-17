@@ -1,6 +1,6 @@
 export default function TermsOfService() {
   return (
-    <section id="terms-of-service" className="py-8 md:py-16 lg:py-24">
+    <section id="terms-of-service" className="py-2 md:py-4 lg:py-6">
       <div className="container mx-auto px-4 text-justify md:px-6">
         <h1 className="mb-4 text-3xl font-bold">Terms of Service</h1>
         <p className="text-muted-foreground mb-4">

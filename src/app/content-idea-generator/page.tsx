@@ -9,7 +9,7 @@ import {
 export default function ContentIdeaGeneratorPage() {
   return (
     <>
-      <section id="content-idea-generator" className="py-8 md:py-16 lg:py-24">
+      <section id="content-idea-generator" className="py-2 md:py-4 lg:py-6">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ContentIdeaGenerator />
         </div>
