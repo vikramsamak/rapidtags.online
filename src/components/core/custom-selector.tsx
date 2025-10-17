@@ -22,7 +22,7 @@ interface CustomSelectorProps {
   placeholder: string;
 }
 
-export default function CustomSelector({
+export function CustomSelector({
   id,
   label,
   value,
