@@ -1,6 +1,6 @@
-import HashtagGenerator from '@/components/custom/hashtag-generator';
-import { Features } from '@/components/custom/features';
-import { Steps } from '@/components/custom/steps';
+import HashtagGenerator from '@/components/features/hashtag-generator';
+import { Features } from '@/components/sections/features';
+import { Steps } from '@/components/sections/steps';
 import {
   HASHTAG_GENERATOR_FEATURES,
   HASHTAG_GENERATOR_STEPS,
@@ -15,7 +15,7 @@ export default function HashtagGeneratorPage() {
         </div>
       </section>
 
-      {/* <Features
+      <Features
         title="Features of Our Hashtag Generator"
         description="Everything you need to create winning hashtag strategies."
         features={HASHTAG_GENERATOR_FEATURES}
@@ -25,7 +25,7 @@ export default function HashtagGeneratorPage() {
         title="A Simple Process"
         description="Get the perfect hashtags in just a few easy steps."
         steps={HASHTAG_GENERATOR_STEPS}
-      /> */}
+      />
     </>
   );
 }
