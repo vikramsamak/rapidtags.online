@@ -10,7 +10,7 @@ interface CommonInputProps {
   setValue: (value: string) => void;
 }
 
-export default function CustomInput({
+export function CustomInput({
   id,
   label,
   type = 'text',
