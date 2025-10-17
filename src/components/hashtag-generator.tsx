@@ -6,16 +6,16 @@ import CustomSelector from './custom-selector';
 import { PLATFORM_OPTIONS } from '@/constants';
 import CommonInput from './common-input';
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/shadcn/button';
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
-} from '@/components/ui/card';
+} from '@/components/shadcn/card';
 import { ArrowRight, Check } from 'lucide-react';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Skeleton } from '@/components/shadcn/skeleton';
 
 export default function HashtagGenerator() {
   const [title, setTitle] = useState('');

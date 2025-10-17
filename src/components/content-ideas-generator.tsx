@@ -1,6 +1,6 @@
 'use client';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Button } from '@/components/shadcn/button';
+import { Card } from '@/components/shadcn/card';
 import { ContentIdea } from '@/types';
 import { makeApiRequest } from '@/utils';
 import { ArrowRight, Check } from 'lucide-react';

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Toaster } from '@/components/ui/sonner';
+import { Toaster } from '@/components/shadcn/sonner';
 import { APP_URL, METADATA } from '@/constants';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { GeistSans } from 'geist/font/sans';

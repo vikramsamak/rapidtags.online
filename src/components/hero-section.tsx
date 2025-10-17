@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/shadcn/button';
 import { Hash, Lightbulb } from 'lucide-react';
 import Link from 'next/link';
 

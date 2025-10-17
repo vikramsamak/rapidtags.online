@@ -1,5 +1,5 @@
-import { Input } from './ui/input';
-import { Label } from './ui/label';
+import { Input } from './shadcn/input';
+import { Label } from './shadcn/label';
 
 interface CommonInputProps {
   id: string;

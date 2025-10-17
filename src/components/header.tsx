@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/shadcn/button';
 import { Menu, X, Hash } from 'lucide-react';
 import { APPLICATION_NAME_FOR_UI, NAVIGATION_LINKS } from '@/constants';
 import { NavigationLinks } from './navigation-links';
