@@ -8,9 +8,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     const { title, platform, keywords, tone, audience } = body;
 
-    if (!title || !platform || !keywords || !tone || !audience) {
+    if (!title || !platform) {
       return NextResponse.json(
-        { message: 'All fields are required.' },
+        { message: 'Title and platform are required.' },
         { status: 400 },
       );
     }
