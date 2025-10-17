@@ -1,4 +1,4 @@
-import HashtagGenerator from '@/components/features/hashtag-generator';
+import { HashtagGenerator } from '@/components/features/hashtag-generator';
 import { Features } from '@/components/sections/features';
 import { Steps } from '@/components/sections/steps';
 import {
