@@ -11,11 +11,10 @@ import { makeApiRequest } from '@/utils';
 import { ArrowRight, Check } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import { CustomInput, CustomSelector } from '../core';
-import { PLATFORM_OPTIONS } from '@/constants';
-import { Button } from '../shadcn/button';
+import { CustomButton, CustomInput, CustomSelector } from '@/components/core';
 import { ScrollArea } from '@/components';
 import { Skeleton } from '../shadcn/skeleton';
+import { PLATFORM_OPTIONS } from '@/constants';
 
 export function ContentIdeaGenerator() {
   const [isContentGenerating, setIsContentGenerating] = useState(false);
@@ -86,14 +85,14 @@ export function ContentIdeaGenerator() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold">Your Results</h3>
-            <Button
+            <CustomButton
               size="sm"
               onClick={handleCopyIdeas}
               disabled={isCopiedIdeas}
             >
               <Check className="mr-2 h-4 w-4" />
               {isCopiedIdeas ? 'Copied' : 'Copy All'}
-            </Button>
+            </CustomButton>
           </div>
           <ScrollArea className="h-[400px] w-full">
             <div className="flex flex-col gap-4 text-left">
@@ -169,7 +168,7 @@ export function ContentIdeaGenerator() {
               value={audience}
               setValue={setAudience}
             />
-            <Button
+            <CustomButton
               onClick={handleGenerateIdeas}
               size="lg"
               className="w-full transition-all duration-200"
@@ -177,7 +176,7 @@ export function ContentIdeaGenerator() {
             >
               {isContentGenerating ? 'Generating...' : 'Generate Ideas'}
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            </CustomButton>
           </div>
           <div className="rounded-lg bg-white/5 p-4">{renderOutput()}</div>
         </div>

@@ -3,9 +3,7 @@ import { toast } from 'sonner';
 import { makeApiRequest } from '@/utils';
 import clsx from 'clsx';
 import { PLATFORM_OPTIONS } from '@/constants';
-import { CustomInput, CustomSelector } from '../core';
-import { useState } from 'react';
-import { Button } from '@/components/shadcn/button';
+import { CustomButton, CustomInput, CustomSelector } from '@/components/core';
 import {
   Card,
   CardHeader,
@@ -16,6 +14,7 @@ import {
 import { ArrowRight, Check } from 'lucide-react';
 import { ScrollArea } from '@/components';
 import { Skeleton } from '@/components/shadcn/skeleton';
+import { useState } from 'react';
 
 export function HashtagGenerator() {
   const [title, setTitle] = useState('');
@@ -96,7 +95,7 @@ export function HashtagGenerator() {
           <div className="flex w-full items-center justify-between">
             <h3 className="text-lg font-semibold">Your Results</h3>
             <div className="flex items-center gap-2">
-              <Button
+              <CustomButton
                 variant="outline"
                 size="sm"
                 onClick={handleSelectAll}
@@ -105,15 +104,15 @@ export function HashtagGenerator() {
                 {selectedTags.length === generatedTags.length
                   ? 'Deselect All'
                   : 'Select All'}
-              </Button>
-              <Button
+              </CustomButton>
+              <CustomButton
                 size="sm"
                 onClick={handleCopy}
                 disabled={isCopied || selectedTags.length === 0}
               >
                 <Check className="mr-2 h-4 w-4" />
                 {isCopied ? 'Copied' : `Copy (${selectedTags.length})`}
-              </Button>
+              </CustomButton>
             </div>
           </div>
           <ScrollArea className="h-[400px] w-full">
@@ -195,7 +194,7 @@ export function HashtagGenerator() {
               value={audience}
               setValue={setAudience}
             />
-            <Button
+            <CustomButton
               onClick={handleGenerate}
               size="lg"
               className="w-full transition-all duration-200"
@@ -203,7 +202,7 @@ export function HashtagGenerator() {
             >
               {isGenerating ? 'Generating...' : 'Generate Hashtags'}
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            </CustomButton>
           </div>
 
           {/* Right Side: Output */}
