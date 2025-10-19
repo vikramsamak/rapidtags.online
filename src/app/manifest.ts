@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Rapidtags.online',
     short_name: 'Rapidtags',
-    description: 'An AI-powered hashtag generator for social media.',
+    description: 'AI-powered tools for social media growth.',
     start_url: '/',
     scope: '/',
     display: 'standalone',
@@ -61,9 +61,14 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     shortcuts: [
       {
-        name: 'Generate Hashtags',
-        url: '/',
-        description: 'Go to the main page to generate hashtags',
+        name: 'Hashtag Generator',
+        url: '/hashtag-generator',
+        description: 'Generate hashtags for your social media posts',
+      },
+      {
+        name: 'Content Idea Generator',
+        url: '/content-idea-generator',
+        description: 'Get content ideas for your next post',
       },
     ],
   };
