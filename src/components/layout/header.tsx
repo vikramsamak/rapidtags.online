@@ -1,9 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/shadcn/button';
 import { Menu, X, Hash } from 'lucide-react';
 import { APPLICATION_NAME_FOR_UI, NAVIGATION_LINKS } from '@/constants';
 import { NavigationLinks } from './navigation-links';
+import Link from 'next/link';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,14 +12,14 @@ export function Header() {
   return (
     <header className="border-border bg-background/80 sticky top-0 z-50 w-full border-b backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        <div className="flex items-center space-x-3">
+        <Link href="/" className="flex items-center space-x-3">
           <div className="bg-foreground text-background flex h-8 w-8 items-center justify-center rounded-md">
             <Hash className="h-4 w-4" />
           </div>
           <span className="text-foreground text-lg font-semibold">
             {APPLICATION_NAME_FOR_UI}
           </span>
-        </div>
+        </Link>
 
         <div className="flex items-center space-x-6">
           <NavigationLinks

@@ -1,0 +1,28 @@
+import { HashtagGenerator } from '@/components/features/hashtag-generator';
+import { Features } from '@/components/sections/features';
+import { Steps } from '@/components/sections/steps';
+import {
+  HASHTAG_GENERATOR_FEATURES,
+  HASHTAG_GENERATOR_STEPS,
+} from '@/constants';
+
+export default function HashtagGeneratorPage() {
+  return (
+    <section id="hashtag-generator" className="py-2 md:py-4 lg:py-6">
+      <div className="container mx-auto px-4 md:px-6">
+        <HashtagGenerator />
+        <Features
+          title="Features of Our Hashtag Generator"
+          description="Everything you need to create winning hashtag strategies."
+          features={HASHTAG_GENERATOR_FEATURES}
+        />
+
+        <Steps
+          title="A Simple Process"
+          description="Get the perfect hashtags in just a few easy steps."
+          steps={HASHTAG_GENERATOR_STEPS}
+        />
+      </div>
+    </section>
+  );
+}

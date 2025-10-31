@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { Toaster } from '@/components/ui/sonner';
+import { Toaster } from '@/components/shadcn/sonner';
 import { APP_URL, METADATA } from '@/constants';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { JsonLd } from '@/components/json-ld';
+import { JsonLd } from '@/components';
 import { Suspense } from 'react';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import { Header } from '@/components';
+import { Footer } from '@/components';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -37,7 +37,9 @@ export default function RootLayout({
     >
       <body className="bg-background text-foreground font-sans">
         <Header />
-        <Suspense fallback={null}>{children}</Suspense>
+        <Suspense fallback={null}>
+          <main className="flex min-h-screen flex-col">{children}</main>
+        </Suspense>
         <Footer />
         <GoogleAnalytics gaId={GA_TAG} />
         <JsonLd />

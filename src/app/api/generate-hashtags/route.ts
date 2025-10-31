@@ -6,11 +6,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const body = await req.json();
 
-    const { title, platform } = body;
+    const { title, platform, keywords, tone, audience } = body;
 
     if (!title || !platform) {
       return NextResponse.json(
-        { message: 'Title and platform are required' },
+        { message: 'Title and platform are required.' },
         { status: 400 },
       );
     }
@@ -18,7 +18,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const response = await makeApiRequest<{ hashtags: string[] }>({
       method: 'POST',
       url: process.env.GENERATE_HASHTAGS_WEBHOOK as string,
-      data: { title, platform },
+      data: { title, platform, keywords, tone, audience },
     });
 
     return NextResponse.json({ data: response.hashtags }, { status: 200 });

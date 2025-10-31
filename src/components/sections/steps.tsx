@@ -1,43 +1,27 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Edit3, Zap, Share2, TrendingUp } from 'lucide-react';
+import { Card, CardContent } from '@/components/shadcn/card';
 
-const steps = [
-  {
-    icon: Edit3,
-    title: 'Describe Your Content',
-    description:
-      'Simply type what your post is about - a photo, video, or any content you want to share.',
-  },
-  {
-    icon: Zap,
-    title: 'Choose Your Platform',
-    description:
-      'Select from YouTube, Instagram, TikTok, LinkedIn, or Twitter for platform-optimized tags.',
-  },
-  {
-    icon: Share2,
-    title: 'Get Smart Tags',
-    description:
-      'Our AI analyzes your content and generates relevant, trending hashtags instantly.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Boost Your Reach',
-    description:
-      'Copy the tags and watch your engagement soar with optimized hashtag strategies.',
-  },
-];
+interface Step {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}
 
-export function HowItWorks() {
+interface StepsProps {
+  title: string;
+  description: string;
+  steps: Step[];
+}
+
+export function Steps({ title, description, steps }: StepsProps) {
   return (
     <section id="how-it-works" className="bg-background py-8 md:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 space-y-4 text-center">
           <h2 className="text-foreground text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-5xl">
-            How It Works
+            {title}
           </h2>
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg text-pretty">
-            Generate perfect hashtags in seconds with our simple 4-step process
+            {description}
           </p>
         </div>
 

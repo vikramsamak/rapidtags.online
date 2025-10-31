@@ -1,20 +1,22 @@
 export const METADATA = {
-  title: 'Rapidtags.online | AI-Powered Hashtag Generator',
+  title: 'Rapidtags.online | AI Tools for Social Media Growth',
   applicationName: 'Rapidtags.online',
   description:
-    'Find the best hashtags for your social media posts with our free AI-powered hashtag generator. Boost your visibility on YouTube, TikTok, Instagram, and more.',
+    'Supercharge your social media presence with our suite of AI-powered tools. Generate effective hashtags, discover content ideas, and optimize your posts for platforms like YouTube, TikTok, and Instagram.',
   keywords: [
     'hashtag generator',
+    'content idea generator',
     'youtube hashtag generator',
     'tiktok hashtag generator',
     'instagram hashtag generator',
     'linkedin hashtag generator',
     'twitter hashtag generator',
     'social media marketing',
+    'content creation',
+    'social media tools',
     'seo tools',
     'keyword research',
     'trending hashtags',
-    'rapidtags',
     'rapidtags',
     'rapidtags.online',
   ],
@@ -28,6 +30,6 @@ export const APPLICATION_NAME_FOR_UI = 'Rapidtags';
 
 export const NAVIGATION_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/#features', label: 'Features' },
-  { href: '/#how-it-works', label: 'How it Works' },
+  { href: '/hashtag-generator', label: 'Hashtag Generator' },
+  { href: '/content-idea-generator', label: 'Content Idea Generator' },
 ];

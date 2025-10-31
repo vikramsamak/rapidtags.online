@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Rapidtags.online',
     short_name: 'Rapidtags',
-    description: 'An AI-powered hashtag generator for social media.',
+    description: 'AI-powered tools for social media growth.',
     start_url: '/',
     scope: '/',
     display: 'standalone',
@@ -13,6 +13,7 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: 'any',
     id: '/',
     categories: ['social', 'utilities'],
+    display_override: ['standalone', 'minimal-ui', 'window-controls-overlay'],
     icons: [
       {
         src: '/icon/android/android-launchericon-192-192.png',
@@ -49,7 +50,7 @@ export default function manifest(): MetadataRoute.Manifest {
       {
         src: '/screenshots/wide.png',
         type: 'image/png',
-        sizes: '1910x883',
+        sizes: '1910x885',
         form_factor: 'wide',
       },
       {
@@ -61,9 +62,34 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     shortcuts: [
       {
-        name: 'Generate Hashtags',
-        url: '/',
-        description: 'Go to the main page to generate hashtags',
+        name: 'Hashtag Generator',
+        url: '/hashtag-generator',
+        description: 'Generate hashtags for your social media posts',
+        icons: [
+          {
+            src: '/icon/shortcuts/hashtag-generator.png',
+            sizes: '96x96',
+            type: 'image/png',
+          },
+        ],
+      },
+      {
+        name: 'Content Idea Generator',
+        url: '/content-idea-generator',
+        description: 'Get content ideas for your next post',
+        icons: [
+          {
+            src: '/icon/shortcuts/content-idea-generator.png',
+            sizes: '96x96',
+            type: 'image/png',
+          },
+        ],
+      },
+    ],
+    protocol_handlers: [
+      {
+        protocol: 'web+rapitags',
+        url: '/?text=%s',
       },
     ],
   };

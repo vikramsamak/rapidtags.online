@@ -1,63 +1,27 @@
-import { Card, CardContent } from '@/components/ui/card';
-import {
-  Zap,
-  Target,
-  TrendingUp as Trending,
-  Shield,
-  Clock,
-  Sparkles,
-} from 'lucide-react';
+import { Card, CardContent } from '@/components/shadcn/card';
 
-const features = [
-  {
-    icon: Zap,
-    title: 'Lightning Fast',
-    description:
-      'Generate optimized hashtags in under 3 seconds with our advanced AI engine.',
-  },
-  {
-    icon: Target,
-    title: 'Platform Optimized',
-    description:
-      "Tailored hashtags for each platform's unique algorithm and audience behavior.",
-  },
-  {
-    icon: Trending,
-    title: 'Trending Analysis',
-    description:
-      "Real-time trending hashtag detection to maximize your content's visibility.",
-  },
-  {
-    icon: Shield,
-    title: 'Safe & Compliant',
-    description:
-      'All generated hashtags are filtered for safety and platform compliance.',
-  },
-  {
-    icon: Clock,
-    title: '24/7 Available',
-    description:
-      'Generate hashtags anytime, anywhere. No limits, no restrictions.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Cutting-Edge & Evolving',
-    description:
-      'Our AI tool is brand new and continuously improving with fresh updates and features.',
-  },
-];
+interface Feature {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}
 
-export function WhyChooseUs() {
+interface FeaturesProps {
+  title: string;
+  description: string;
+  features: Feature[];
+}
+
+export function Features({ title, description, features }: FeaturesProps) {
   return (
     <section id="features" className="bg-background py-8 md:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 space-y-4 text-center">
           <h2 className="text-foreground text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-5xl">
-            Why Choose Our Tag Generator
+            {title}
           </h2>
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg text-pretty">
-            Powerful features designed to maximize your social media reach and
-            engagement
+            {description}
           </p>
         </div>
 
