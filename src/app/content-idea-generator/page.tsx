@@ -8,8 +8,11 @@ import {
 
 export default function ContentIdeaGeneratorPage() {
   return (
-    <section id="content-idea-generator" className="py-2 md:py-4 lg:py-6">
-      <div className="container mx-auto px-4 md:px-6">
+    <section
+      id="content-idea-generator"
+      className="flex h-full flex-1 flex-col py-2 md:py-4 lg:py-6"
+    >
+      {/* <div className="container mx-auto px-4 md:px-6">
         <ContentIdeaGenerator />
         <Features
           title="Features of Our Content Idea Generator"
@@ -22,6 +25,11 @@ export default function ContentIdeaGeneratorPage() {
           description="Get the perfect content ideas in just a few easy steps."
           steps={CONTENT_IDEA_GENERATOR_STEPS}
         />
+      </div> */}
+      <div className="flex h-full flex-1 items-center justify-center">
+        <div className="text-muted-foreground p-2">
+          <p>Content Idea Generator is coming soon...</p>
+        </div>
       </div>
     </section>
   );
