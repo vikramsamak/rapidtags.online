@@ -1,6 +1,6 @@
 # Rapitags.online - AI-Powered Hashtag Generator
 
-[![Website](https://img.shields.io/badge/Website-rapitags.online-blue)](https://rapitags.online)
+[![Website](https://img.shields.io/badge/Website-rapidtags.online-blue)](https://rapidtags.online)
 
 Rapitags.online is an AI-powered tool that helps you generate relevant and effective hashtags for your social media content, especially for YouTube videos. Simply enter the title of your video, and our AI will provide you with a list of optimized hashtags to improve your content's visibility.
 
@@ -14,7 +14,7 @@ Rapitags.online is an AI-powered tool that helps you generate relevant and effec
 
 ## 🚀 Live Demo
 
-You can access the live application here: [https://rapitags.online](https://rapitags.online)
+You can access the live application here: [https://rapidtags.online](https://rapidtags.online)
 
 ## 📸 Screenshots
 

@@ -88,7 +88,7 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     protocol_handlers: [
       {
-        protocol: 'web+rapitags',
+        protocol: 'web+rapidtags',
         url: '/?text=%s',
       },
     ],

@@ -24,7 +24,7 @@ export const METADATA = {
   authors: [{ name: 'Vikram Samak', url: 'https://vikramsamak.com' }],
 };
 
-export const APP_URL = 'https://www.rapitags.online';
+export const APP_URL = 'https://rapidtags.online';
 
 export const APPLICATION_NAME_FOR_UI = 'Rapidtags';
 
