@@ -4,11 +4,12 @@ import { APP_URL, METADATA } from '@/constants';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { JsonLd } from '@/components';
+import { JsonLd, ServiceWorkerRegistration } from '@/components';
 import { Suspense } from 'react';
 import { Header } from '@/components';
 import { Footer } from '@/components';
 import './globals.css';
+import PWAInstallButton from '@/components/utils/pwa-install-button';
 
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
@@ -35,6 +36,7 @@ export default function RootLayout({
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} dark antialiased`}
     >
+      <ServiceWorkerRegistration />
       <body className="bg-background text-foreground font-sans">
         <Header />
         <Suspense fallback={null}>
@@ -43,6 +45,7 @@ export default function RootLayout({
         <Footer />
         <GoogleAnalytics gaId={GA_TAG} />
         <JsonLd />
+        <PWAInstallButton />
         <Toaster position="bottom-right" />
       </body>
     </html>
