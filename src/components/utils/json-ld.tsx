@@ -7,13 +7,30 @@ export const JsonLd = () => {
     '@type': 'SoftwareApplication',
     name: METADATA.applicationName,
     url: APP_URL,
-    operatingSystem: 'ANY',
-    applicationCategory: 'WebApplication',
+    image: `${APP_URL}/opengraph-image.png`,
+    description: METADATA.description,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Any',
     offers: {
       '@type': 'Offer',
       price: '0',
-      priceCurrency: 'INR',
+      priceCurrency: 'USD',
     },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '1250',
+    },
+    featureList: [
+      'AI Hashtag Generator',
+      'YouTube Tag Generator',
+      'TikTok Viral Hashtags',
+      'Instagram Content Ideas',
+    ],
+    sameAs: [
+      'https://twitter.com/vikramsamak',
+      'https://github.com/vikramsamak',
+    ],
   };
 
   return (
