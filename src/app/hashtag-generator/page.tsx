@@ -1,5 +1,18 @@
-import { HashtagGenerator } from '@/components/features/hashtag-generator';
+import dynamic from 'next/dynamic';
 import { FaqJsonLd, BreadcrumbJsonLd, HowToJsonLd } from '@/components/utils';
+
+const HashtagGenerator = dynamic(
+  () =>
+    import('@/components/features/hashtag-generator').then(
+      (mod) => mod.HashtagGenerator,
+    ),
+  {
+    loading: () => (
+      <div className="bg-card/50 h-[600px] w-full animate-pulse rounded-xl" />
+    ),
+    ssr: true,
+  },
+);
 import { Features } from '@/components/sections/features';
 import { Steps } from '@/components/sections/steps';
 import {
