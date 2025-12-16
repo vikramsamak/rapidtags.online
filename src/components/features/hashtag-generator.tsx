@@ -109,18 +109,26 @@ export function HashtagGenerator() {
                 size="sm"
                 onClick={handleCopy}
                 disabled={isCopied || selectedTags.length === 0}
+                aria-label={
+                  isCopied ? 'Hashtags copied' : 'Copy selected hashtags'
+                }
               >
-                <Check className="mr-2 h-4 w-4" />
+                <Check className="mr-2 h-4 w-4" aria-hidden="true" />
                 {isCopied ? 'Copied' : `Copy (${selectedTags.length})`}
               </CustomButton>
             </div>
           </div>
           <ScrollArea className="h-[400px] w-full">
-            <div className="bg-background/30 flex w-full flex-wrap gap-2 rounded-lg border border-white/5 p-4">
+            <div
+              className="bg-background/30 flex w-full flex-wrap gap-2 rounded-lg border border-white/5 p-4"
+              role="list"
+            >
               {generatedTags.map((tag, index) => (
                 <button
                   key={index}
                   onClick={() => handleTagSelect(tag)}
+                  aria-pressed={selectedTags.includes(tag)}
+                  aria-label={`Select hashtag ${tag}`}
                   className={clsx(
                     'inline-flex cursor-pointer items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors select-none',
                     selectedTags.includes(tag)

@@ -31,9 +31,10 @@ export function HeroSection() {
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 hover:shadow-primary/25 h-12 w-full transition-all duration-200 hover:shadow-lg sm:w-auto"
+                aria-label="Start generating hashtags for free"
               >
                 Generate Hashtags
-                <Hash className="ml-2 h-4 w-4" />
+                <Hash className="ml-2 h-4 w-4" aria-hidden="true" />
               </Button>
             </Link>
             <Link href="/content-idea-generator" passHref>
