@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import type { Route } from 'next';
 import { cn } from '@/lib/utils';
 
 interface NavLink {
-  href: string;
+  href: Route;
   label: string;
 }
 
