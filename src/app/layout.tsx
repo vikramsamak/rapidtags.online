@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   creator: METADATA.creator,
   authors: METADATA.authors,
   alternates: {
-    canonical: APP_URL,
+    canonical: './',
   },
   applicationName: METADATA.applicationName,
 };
