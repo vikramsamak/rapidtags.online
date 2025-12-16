@@ -8,8 +8,8 @@ import { JsonLd, ServiceWorkerRegistration } from '@/components';
 import { Suspense } from 'react';
 import { Header } from '@/components';
 import { Footer } from '@/components';
-import './globals.css';
 import PWAInstallButton from '@/components/utils/pwa-install-button';
+import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
@@ -22,6 +22,32 @@ export const metadata: Metadata = {
     canonical: './',
   },
   applicationName: METADATA.applicationName,
+  category: 'technology',
+  verification: {
+    google: 'google-site-verification-code', // Replace with actual code
+    yandex: 'yandex-verification-code', // Replace with actual code
+    other: {
+      'msvalidate.01': 'bing-verification-code', // Replace with actual code
+    },
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: METADATA.title,
+    description: METADATA.description,
+    creator: '@vikramsamak',
+    images: [`${APP_URL}/opengraph-image.png`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 const GA_TAG = process.env.GA_TAG as string;
