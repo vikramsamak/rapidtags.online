@@ -2,10 +2,33 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  typedRoutes: true,
+  poweredByHeader: false,
+  compress: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+  },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   experimental: {
     optimizeCss: true,
     inlineCss: true,
-    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-icons'],
+    optimizePackageImports: [
+      'lucide-react',
+      'framer-motion',
+      '@radix-ui/react-icons',
+      'sonner',
+      'clsx',
+      'tailwind-merge',
+    ],
   },
   async headers() {
     return [
