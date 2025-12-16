@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: true,
     inlineCss: true,
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-icons'],
   },
   async headers() {
     return [
