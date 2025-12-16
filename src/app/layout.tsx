@@ -60,7 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} dark antialiased`}
+      className={`${GeistSans.variable} ${GeistMono.variable} dark scroll-smooth antialiased`}
     >
       <ServiceWorkerRegistration />
       <body className="bg-background text-foreground font-sans">
