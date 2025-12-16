@@ -1,5 +1,11 @@
 {
   "name": "rapidtags.online",
+  "browserslist": [
+    "chrome >= 87",
+    "firefox >= 78",
+    "safari >= 14",
+    "edge >= 88"
+  ],
   "version": "0.1.0",
   "private": true,
   "scripts": {
