@@ -9,51 +9,50 @@ export const contentType = 'image/png';
 
 export default async function Image() {
   return new ImageResponse(
-    (
+    <div
+      style={{
+        height: '100%',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#000',
+        backgroundImage:
+          'linear-gradient(to bottom right, #000000 20%, #1a1a1a 100%)',
+        color: '#fff',
+        padding: '48px',
+        fontFamily: '"SF Pro Display", "Helvetica Neue", "Arial", sans-serif',
+      }}
+    >
       <div
         style={{
-          height: '100%',
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#000',
-          backgroundImage:
-            'linear-gradient(to bottom right, #000000 20%, #1a1a1a 100%)',
-          color: '#fff',
-          padding: '48px',
-          fontFamily: '"SF Pro Display", "Helvetica Neue", "Arial", sans-serif',
+          fontSize: '86px',
+          fontWeight: 700,
+          lineHeight: 2,
+          letterSpacing: '-0.02em',
+          textAlign: 'center',
+          background: 'linear-gradient(to right, #ffffff, #cccccc)',
+          backgroundClip: 'text',
+          color: 'transparent',
         }}
       >
-        <div
-          style={{
-            fontSize: '86px',
-            fontWeight: 700,
-            lineHeight: 1.1,
-            letterSpacing: '-0.02em',
-            textAlign: 'center',
-            background: 'linear-gradient(to right, #ffffff, #cccccc)',
-            backgroundClip: 'text',
-            color: 'transparent',
-          }}
-        >
-          Rapidtags.online
-        </div>
-        <div
-          style={{
-            marginTop: '24px',
-            fontSize: '36px',
-            fontWeight: 400,
-            lineHeight: 1.4,
-            textAlign: 'center',
-            color: '#999999',
-          }}
-        >
-          AI-Powered Hashtag Generator for Social Media
-        </div>
+        Rapidtags.online
       </div>
-    ),
+      <div
+        style={{
+          marginTop: '24px',
+          fontSize: '32px',
+          fontWeight: 400,
+          lineHeight: 1.4,
+          textAlign: 'center',
+          color: '#999999',
+          maxWidth: '80%',
+        }}
+      >
+        Free AI Hashtag Generator for YouTube, TikTok & Instagram
+      </div>
+    </div>,
     {
       ...size,
     },
