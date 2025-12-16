@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
 import { Label } from '../shadcn/label';
 import {
   Select,
@@ -17,7 +16,7 @@ interface CustomSelectorProps {
   id: string;
   label: string;
   value: string;
-  setValue: Dispatch<SetStateAction<string>>;
+  setValue: (value: string) => void;
   options: Option[];
   placeholder: string;
 }
