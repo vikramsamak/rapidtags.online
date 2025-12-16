@@ -1,5 +1,5 @@
 import { HashtagGenerator } from '@/components/features/hashtag-generator';
-import { FaqJsonLd } from '@/components/utils';
+import { FaqJsonLd, BreadcrumbJsonLd, HowToJsonLd } from '@/components/utils';
 import { Features } from '@/components/sections/features';
 import { Steps } from '@/components/sections/steps';
 import {
@@ -29,7 +29,27 @@ export default function HashtagGeneratorPage() {
   return (
     <section id="hashtag-generator" className="py-2 md:py-4 lg:py-6">
       <FaqJsonLd faqs={FAQS} />
+      <BreadcrumbJsonLd
+        breadcrumbs={[
+          { name: 'Home', item: 'https://rapidtags.online' },
+          {
+            name: 'Hashtag Generator',
+            item: 'https://rapidtags.online/hashtag-generator',
+          },
+        ]}
+      />
+      <HowToJsonLd
+        name="How to use the AI Hashtag Generator"
+        description="Generate viral hashtags in seconds using AI."
+        steps={HASHTAG_GENERATOR_STEPS.map((step) => ({
+          name: step.title,
+          text: step.description,
+        }))}
+      />
       <div className="container mx-auto px-4 md:px-6">
+        <h1 className="mb-8 text-center text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+          Free AI Hashtag Generator for Social Media
+        </h1>
         <HashtagGenerator />
         <Features
           title="Features of Our Hashtag Generator"
