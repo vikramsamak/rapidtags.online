@@ -4,7 +4,8 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Rapidtags.online',
     short_name: 'Rapidtags',
-    description: 'AI-powered tools for social media growth.',
+    description:
+      'Boost your reach with the #1 Free AI Hashtag Generator. Instantly generate viral hashtags for YouTube, TikTok, Instagram, and LinkedIn. No login required.',
     start_url: '/',
     scope: '/',
     display: 'standalone',

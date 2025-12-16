@@ -17,11 +17,17 @@ import { Skeleton } from '@/components/shadcn/skeleton';
 import { useState } from 'react';
 
 export function HashtagGenerator() {
-  const [title, setTitle] = useState('');
-  const [platform, setPlatform] = useState('');
-  const [keywords, setKeywords] = useState('');
-  const [tone, setTone] = useState('');
-  const [audience, setAudience] = useState('');
+  const [formData, setFormData] = useState({
+    title: '',
+    platform: '',
+    keywords: '',
+    tone: '',
+    audience: '',
+  });
+
+  const updateField = (field: keyof typeof formData) => (value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
   const [generatedTags, setGeneratedTags] = useState<string[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -35,7 +41,7 @@ export function HashtagGenerator() {
       const response: { data: string[] } = await makeApiRequest({
         url: '/api/generate-hashtags',
         method: 'POST',
-        data: { title, platform, keywords, tone, audience },
+        data: formData,
       });
       toast.success('Hashtags generated successfully!');
       setGeneratedTags(response.data);
@@ -109,18 +115,26 @@ export function HashtagGenerator() {
                 size="sm"
                 onClick={handleCopy}
                 disabled={isCopied || selectedTags.length === 0}
+                aria-label={
+                  isCopied ? 'Hashtags copied' : 'Copy selected hashtags'
+                }
               >
-                <Check className="mr-2 h-4 w-4" />
+                <Check className="mr-2 h-4 w-4" aria-hidden="true" />
                 {isCopied ? 'Copied' : `Copy (${selectedTags.length})`}
               </CustomButton>
             </div>
           </div>
           <ScrollArea className="h-[400px] w-full">
-            <div className="bg-background/30 flex w-full flex-wrap gap-2 rounded-lg border border-white/5 p-4">
+            <div
+              className="bg-background/30 flex w-full flex-wrap gap-2 rounded-lg border border-white/5 p-4"
+              role="list"
+            >
               {generatedTags.map((tag, index) => (
                 <button
                   key={index}
                   onClick={() => handleTagSelect(tag)}
+                  aria-pressed={selectedTags.includes(tag)}
+                  aria-label={`Select hashtag ${tag}`}
                   className={clsx(
                     'inline-flex cursor-pointer items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors select-none',
                     selectedTags.includes(tag)
@@ -162,14 +176,14 @@ export function HashtagGenerator() {
               id="topic-for-hashtags"
               label="Topic"
               placeholder="e.g., AI in marketing, Healthy recipes"
-              value={title}
-              setValue={setTitle}
+              value={formData.title}
+              setValue={updateField('title')}
             />
             <CustomSelector
               id="platform"
               label="Platform"
-              value={platform}
-              setValue={setPlatform}
+              value={formData.platform}
+              setValue={updateField('platform')}
               options={PLATFORM_OPTIONS}
               placeholder="Select a platform"
             />
@@ -177,28 +191,28 @@ export function HashtagGenerator() {
               id="keywords"
               label="Keywords (Optional)"
               placeholder="e.g., SEO, social media, content creation"
-              value={keywords}
-              setValue={setKeywords}
+              value={formData.keywords}
+              setValue={updateField('keywords')}
             />
             <CustomInput
               id="tone"
               label="Tone (Optional)"
               placeholder="e.g., Professional, Casual, Humorous"
-              value={tone}
-              setValue={setTone}
+              value={formData.tone}
+              setValue={updateField('tone')}
             />
             <CustomInput
               id="audience"
               label="Target Audience (Optional)"
               placeholder="e.g., Small business owners, Students"
-              value={audience}
-              setValue={setAudience}
+              value={formData.audience}
+              setValue={updateField('audience')}
             />
             <CustomButton
               onClick={handleGenerate}
               size="lg"
               className="w-full transition-all duration-200"
-              disabled={!title || !platform || isGenerating}
+              disabled={!formData.title || !formData.platform || isGenerating}
             >
               {isGenerating ? 'Generating...' : 'Generate Hashtags'}
               <ArrowRight className="ml-2 h-4 w-4" />

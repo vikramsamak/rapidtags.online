@@ -17,12 +17,12 @@ export function HeroSection() {
 
           <div className="max-w-4xl space-y-6">
             <h1 className="text-foreground text-4xl font-bold tracking-tight text-balance sm:text-5xl md:text-6xl">
-              Supercharge Your Content Strategy
+              Free AI Hashtag Generator for YouTube, TikTok & Instagram
             </h1>
             <p className="text-muted-foreground mx-auto max-w-2xl text-lg leading-relaxed text-pretty sm:text-xl">
-              Your ultimate AI-powered toolkit for generating viral hashtags,
-              captivating content ideas, and much more to elevate your online
-              presence.
+              Boost your social media reach with the #1 AI-powered tool.
+              Instantly generate viral hashtags, caption ideas, and more—no
+              login required.
             </p>
           </div>
 
@@ -31,9 +31,10 @@ export function HeroSection() {
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 hover:shadow-primary/25 h-12 w-full transition-all duration-200 hover:shadow-lg sm:w-auto"
+                aria-label="Start generating hashtags for free"
               >
                 Generate Hashtags
-                <Hash className="ml-2 h-4 w-4" />
+                <Hash className="ml-2 h-4 w-4" aria-hidden="true" />
               </Button>
             </Link>
             <Link href="/content-idea-generator" passHref>
